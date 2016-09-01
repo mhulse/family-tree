@@ -9,6 +9,7 @@
 	body {
 		font-size: 50px;
 		font-family: sans-serif;
+		line-height: 1;
 		margin: 0;
 	}
 	body > div {
@@ -16,9 +17,18 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		display: flex;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flexbox;
+		display: -flex;
 	}
 	body > div > table {
+		-webkit-box-flex: 1;
+		-webkit-flex: 1;
+		-moz-box-flex: 1;
+		-moz-flex: 1;
+		-ms-flex: 1;
 		flex: 1;
 		margin: 5px;
 		border: 2px solid #000;
@@ -27,6 +37,7 @@
 		margin: 5px;
 		border-collapse: collapse;
 	}
+	table table { margin: 0; }
 	table td {
 		text-align: center;
 		padding: 0;
@@ -35,218 +46,150 @@
 	table td {
 		border: 1px solid rgba(0, 0, 0, .1);
 	}
+	span.you { background: yellow; }
 	span {
 		border: 1px solid red;
 		margin: 5px;
-		padding: 5px;
 		display: inline-block;
 		position: relative;
 	}
+	span + span { margin-left: 0; }
 </style>
 </head>
 <body>
 <div>
+	
 	<table>
 		<tr>
-			<td colspan="2">
-				<span>P</span>
-				<span>P</span>
+			<td colspan="3">
+				<div id="b">
+					<span>N</span
+					><span>N</span>
+				</div>
 			</td>
 		</tr>
 		<tr>
-			<td>
-				<table>
-					<tr>
-						<td colspan="6">
-							<span>P</span>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<span>C</span>
-						</td>
-						<td>
-							<span>C</span>
-						</td>
-						<td>
-							<span>C</span>
-						</td>
-						<td>
-							<span>C</span>
-						</td>
-						<td>
-							<span>C</span>
-						</td>
-						<td>
-							<span>C</span>
-						</td>
-					</tr>
-				</table>
+			<td><span>N</span></td>
+			<td><span>N</span></td>
+			<td><span>N</span></td>
+		</tr>
+	</table>
+	
+	<table>
+		<tr>
+			<td colspan="3">
+				<span id="a">N</span
+				><span id="c">N</span>
 			</td>
+		</tr>
+		<tr>
+			<td><span>N</span></td>
+			<td><span>N</span></td>
 			<td>
 				<table>
 					<tr>
 						<td colspan="3">
-							<span>P</span>
-							<span class="a">P</span>
+							<span class="you">N</span>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<span>C</span>
-						</td>
-						<td>
-							<span>C</span>
+							<table>
+								<tr>
+									<td colspan="8">
+										<span>N</span>
+									</td>
+								</tr>
+								<tr>
+									<td><span>N</span></td>
+									<td><span>N</span></td>
+									<td><span>N</span></td>
+									<td><span>N</span></td>
+									<td><span>N</span></td>
+									<td><span>N</span></td>
+									<td><span>N</span></td>
+									<td><span>N</span></td>
+								</tr>
+							</table>
 						</td>
 						<td>
 							<table>
 								<tr>
-									<td colspan="3">
-										<span>P</span>
+									<td colspan="4">
+										<span>N</span>
 									</td>
 								</tr>
 								<tr>
-									<td>
-										<span>C</span>
-									</td>
-									<td>
-										<table>
-											<tr>
-												<td colspan="6">
-													<span>P</span>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<span>C</span>
-												</td>
-												<td>
-													<span>C</span>
-												</td>
-												<td>
-													<span>C</span>
-												</td>
-												<td>
-													<span>C</span>
-												</td>
-												<td>
-													<span>C</span>
-												</td>
-												<td>
-													<span>C</span>
-												</td>
-											</tr>
-										</table>
-									</td>
+									<td><span>N</span></td>
+									<td><span>N</span></td>
 									<td>
 										<table>
 											<tr>
-												<td colspan="9">
-													<span>P</span>
+												<td colspan="3">
+													<span>N</span>
 												</td>
 											</tr>
 											<tr>
-												<td>
-													<span>C</span>
-												</td>
-												<td>
-													<table>
-														<tr>
-															<td colspan="3">
-																<span>P</span>
-															</td>
-														</tr>
-														<tr>
-															<td>
-																<span>C</span>
-															</td>
-															<td>
-																<span>C</span>
-															</td>
-															<td>
-																<span>C</span>
-															</td>
-														</tr>
-													</table>
-												</td>
-												<td>
-													<span>C</span>
-												</td>
-												<td>
-													<span>C</span>
-												</td>
-												<td>
-													<span>C</span>
-												</td>
-												<td>
-													<span>C</span>
-												</td>
-												<td>
-													<span>C</span>
-												</td>
-												<td>
-													<span>C</span>
-												</td>
-												<td>
-													<span>C</span>
-												</td>
+												<td><span>N</span></td>
+												<td><span>N</span></td>
+												<td><span>N</span></td>
 											</tr>
 										</table>
 									</td>
+									<td><span>N</span></td>
 								</tr>
 							</table>
 						</td>
+						<td><span>N</span></td>
 					</tr>
 				</table>
 			</td>
 		</tr>
 	</table>
+	
 	<table>
 		<tr>
-			<td>
-				<table>
-					<tr>
-						<td colspan="6">
-							<span class="b">P</span>
-							<span>P</span>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<span>C</span>
-						</td>
-						<td>
-							<span>C</span>
-						</td>
-						<td>
-							<span>C</span>
-						</td>
-						<td>
-							<span>C</span>
-						</td>
-						<td>
-							<span>C</span>
-						</td>
-						<td>
-							<span>C</span>
-						</td>
-					</tr>
-				</table>
+			<td colspan="6">
+				<div id="d">
+					<span>N</span
+					><span>N</span>
+				</div>
 			</td>
 		</tr>
+		<tr>
+			<td><span>N</span></td>
+			<td><span>N</span></td>
+			<td><span>N</span></td>
+			<td><span>N</span></td>
+			<td><span>N</span></td>
+			<td><span>N</span></td>
+		</tr>
 	</table>
+	
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-<script src="https://rawgit.com/gunjankothari/jquery.connectingLine/master/required/script/jquery.connectingLine.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/2.0.7/jsPlumb.min.js"></script>
 <script>
-var mySVG = $('body').connect();
-	mySVG.drawLine({
-		left_node:'.a',
-		right_node:'.b',
-		horizantal_gap:10,
-		error:true,
-		width:1
+	// https://jsplumbtoolkit.com/community/doc/connect-examples.html
+	jsPlumb.ready(function() {
+		jsPlumb.connect({
+			source: 'a',
+			target: 'b',
+			anchors:[
+				'Top',
+				'Top'
+			]
+		});
+		jsPlumb.connect({
+			source: 'c',
+			target: 'd',
+			anchors:[
+				'Top',
+				'Top'
+			]
+		});
 	});
+	$(function() {});
 </script>
 </body>
 </html>
