@@ -7,39 +7,246 @@
 	*::before,
 	*::after { box-sizing: border-box; }
 	body {
+		font-size: 50px;
 		font-family: sans-serif;
 		margin: 0;
 	}
-	[row="top"] {
+	body > div {
 		position: absolute;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		padding: 10px;
+		display: flex;
 	}
-	[row] {
-		display: inline-flex;
-		flex-wrap: nowrap;
-		flex-direction: row;
-		border: 1px solid green;
-	}
-	[col] {
+	body > div > table {
 		flex: 1;
+		margin: 5px;
+		border: 2px solid #000;
+	}
+	table {
+		margin: 5px;
+		border-collapse: collapse;
+	}
+	table td {
+		text-align: center;
+		padding: 0;
+		vertical-align: top;
+	}
+	table td {
+		border: 1px solid rgba(0, 0, 0, .1);
+	}
+	span {
 		border: 1px solid red;
-		padding: 50px 0;
-	}
-	[col] {
-		margin: 10px;
-	}
-	[row] > [col]:last-child {
-		border: 1px solid black;
+		margin: 5px;
+		padding: 5px;
+		display: inline-block;
+		position: relative;
 	}
 </style>
 </head>
 <body>
-	<div row="top">
-		<div col>Node</div>
-		<div col>NodeNode</div>
-	</div>
+<div>
+	<table>
+		<tr>
+			<td colspan="2">
+				<span>P</span>
+				<span>P</span>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table>
+					<tr>
+						<td colspan="6">
+							<span>P</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span>C</span>
+						</td>
+						<td>
+							<span>C</span>
+						</td>
+						<td>
+							<span>C</span>
+						</td>
+						<td>
+							<span>C</span>
+						</td>
+						<td>
+							<span>C</span>
+						</td>
+						<td>
+							<span>C</span>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table>
+					<tr>
+						<td colspan="3">
+							<span>P</span>
+							<span class="a">P</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span>C</span>
+						</td>
+						<td>
+							<span>C</span>
+						</td>
+						<td>
+							<table>
+								<tr>
+									<td colspan="3">
+										<span>P</span>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<span>C</span>
+									</td>
+									<td>
+										<table>
+											<tr>
+												<td colspan="6">
+													<span>P</span>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<span>C</span>
+												</td>
+												<td>
+													<span>C</span>
+												</td>
+												<td>
+													<span>C</span>
+												</td>
+												<td>
+													<span>C</span>
+												</td>
+												<td>
+													<span>C</span>
+												</td>
+												<td>
+													<span>C</span>
+												</td>
+											</tr>
+										</table>
+									</td>
+									<td>
+										<table>
+											<tr>
+												<td colspan="9">
+													<span>P</span>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<span>C</span>
+												</td>
+												<td>
+													<table>
+														<tr>
+															<td colspan="3">
+																<span>P</span>
+															</td>
+														</tr>
+														<tr>
+															<td>
+																<span>C</span>
+															</td>
+															<td>
+																<span>C</span>
+															</td>
+															<td>
+																<span>C</span>
+															</td>
+														</tr>
+													</table>
+												</td>
+												<td>
+													<span>C</span>
+												</td>
+												<td>
+													<span>C</span>
+												</td>
+												<td>
+													<span>C</span>
+												</td>
+												<td>
+													<span>C</span>
+												</td>
+												<td>
+													<span>C</span>
+												</td>
+												<td>
+													<span>C</span>
+												</td>
+												<td>
+													<span>C</span>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table>
+		<tr>
+			<td>
+				<table>
+					<tr>
+						<td colspan="6">
+							<span class="b">P</span>
+							<span>P</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span>C</span>
+						</td>
+						<td>
+							<span>C</span>
+						</td>
+						<td>
+							<span>C</span>
+						</td>
+						<td>
+							<span>C</span>
+						</td>
+						<td>
+							<span>C</span>
+						</td>
+						<td>
+							<span>C</span>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="https://rawgit.com/gunjankothari/jquery.connectingLine/master/required/script/jquery.connectingLine.js"></script>
+<script>
+var mySVG = $('body').connect();
+	mySVG.drawLine({
+		left_node:'.a',
+		right_node:'.b',
+		horizantal_gap:10,
+		error:true,
+		width:1
+	});
+</script>
 </body>
 </html>
