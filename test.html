@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang=en>
+<head>
+	
+	<meta charset=utf-8>
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+	<link rel="stylesheet" href="styles.css">
+	
+</head>
+<body>
+	
+	<div id="canvas"></div>
+	
+	<div class="modal">
+		<div class="modal-body">
+			<div>
+				<label>
+					<span>Name:</span>
+					<input type="text">
+				</label>
+			</div>
+			<div>
+				<label>
+					<span>Relationship:</span>
+					<select name="select">
+						<option value="value1">Mother</option>
+						<option value="value2">Father</option>
+						<option value="value3">Spouse</option>
+						<option value="value3">Sibling</option>
+					</select>
+				</label>
+			</div>
+			<div>
+				<button type="submit">Add Relative</button>
+			</div>
+		</div>
+	</div>
+	
+	<!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+	
+	<script id="tmpl-node" type="text/template">
+		<table>
+			<tr>
+				<td>
+					<span class="node <%=data.class%>">
+						<%=data.name%>
+					</span>
+				</td>
+			</tr>
+		</table>
+	</script>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore-contrib/0.3.0/underscore-contrib.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<script src="scripts.js"></script>
+	
+</body>
+</html>
