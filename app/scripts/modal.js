@@ -1,8 +1,8 @@
-$(function() {
+(function(namespace, document, undefined) {
 	
 	var $document = $(document);
 	
-	var openModal = function() {
+	namespace.openModal = function() {
 		
 		var $modal = $('.modal');
 		
@@ -31,17 +31,4 @@ $(function() {
 		
 	});
 	
-	var addNode = function(target, template, data, func) {
-		
-		$(target)[func || 'append'](_.template($(template).html())({
-			data: data
-		}));
-		
-	};
-	
-	addNode('#canvas', '#tmpl-node', {
-		name: 'billy',
-		'class': 'you'
-	});
-	
-});
+}((window.TREE = (window.TREE || {}), document)));
