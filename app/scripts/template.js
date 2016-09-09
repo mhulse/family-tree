@@ -3,48 +3,60 @@
 	namespace.loadTemplates = function(files, path) {
 		
 		var $body = $('body');
-		var templatesLoadedPromise = null;
+		var promises = [];
+		var template = '';
 		
 		// Make sure it is an array:
-		files = (_(files).isArray()) ? files : [files];
+		files = ((_(files).isArray()) ? files : [files]);
 		
-		path = path || '';
+		path = (path || '');
 		
 		_(files).each(function(file, index) {
 			
-			file += (_(file).indexOf('.html') == -1) ? '.html' : '';
+			file += ((_(file).indexOf('.html') == -1) ? '.html' : '');
+			
+			template = (path + file);
 			
 			// http://stackoverflow.com/a/26253242/922323
-			templatesLoadedPromise = $.get(path + file).then(function(data) {
-				
-				console.info('Async loading of templates complete');
-				
-				$body.append(data);
-				
-			}).fail(function() {
-				
-				console.info('ERROR: Could not load base templates');
-				
-			});
+			promises.push(
+				$.get(template, function(data) {
+					
+					console.info('Async loading of template complete:', this.url);
+					
+					$body.append(data);
+					
+				}).fail(function() {
+					
+					console.warn('Could not load template:', this.url);
+					
+				})
+			);
 			
 		});
 		
-		return templatesLoadedPromise;
+		return $.when.apply(null, promises);
 		
 	};
 	
-	namespace.addTemplate = function(target, template, data, func) {
+	namespace.mergeTemplates = function(parent, target, child, func) {
 		
-		var result = false;
-		var $target = $(target);
+		var $parent = ((parent instanceof jQuery) ? parent : $(parent));
 		
-		func = (func || 'append');
+		$parent.find(target)[func || 'html'](child);
+		
+		return $parent;
+		
+	};
+	
+	namespace.addTemplate = function(target, template, func) {
+		
+		var $target = ((target instanceof jQuery) ? target : $(target));
+		
+		func = (func || 'html');
 		
 		if ($target.length) {
 			
-			$target[func](
-				this.getTemplate(template, data)
-			);
+			$target[func](template);
 			
 			result = true;
 			
@@ -58,10 +70,16 @@
 		
 	};
 	
+	namespace.getAndAddTemplate = function(target, template, data, func) {
+		
+		return this.addTemplate(target, this.getTemplate(template, data), func);
+		
+	};
+	
 	namespace.getTemplate = function(template, data) {
 		
 		var result = '';
-		var $template = $(template);
+		var $template = ((template instanceof jQuery) ? template : $(template)); // Test if already a jQuery object.
 		
 		data = (data || '');
 		
