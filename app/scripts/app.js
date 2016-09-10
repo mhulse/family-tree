@@ -1,10 +1,16 @@
-(function(namespace, undefined) {
+(function(ns, document, undefined) {
 	
-	namespace.init = function() {
+	'use strict';
+	
+	ns.root = {};
+	
+	ns.init = function() {
 		
 		var self = this;
 		
-		self.loadTemplates([
+		this.root = self;
+		
+		self.template.load([
 			'node',
 			'modal',
 			'person'
@@ -24,24 +30,19 @@
 		
 	};
 	
-	namespace.main = function() {
+	ns.main = function() {
 		
-		var node = this.getTemplate('#tpl-node');
+		this.modal.init();
 		
-		var person = this.getTemplate('#tpl-person', {
-			name: 'billy',
-			'class': 'you'
-		});
-		
-		this.addTemplate(
-			'#canvas',
-			this.mergeTemplates(node, 'td', person)
-		);
+		this.tree.load();
 		
 	};
 	
-}((window.TREE = (window.TREE || {}))));
+}(
+	window.TREE = (window.TREE || {}),
+	document
+));
 
 $(function() {
-	var tree = TREE.init();
+	TREE.init();
 });

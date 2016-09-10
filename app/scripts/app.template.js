@@ -1,6 +1,10 @@
-(function(namespace, undefined) {
+(function(ns, document, undefined) {
 	
-	namespace.loadTemplates = function(files, path) {
+	'use strict';
+	
+	ns.template = {};
+	
+	ns.template.load = function(files, path) {
 		
 		var $body = $('body');
 		var promises = [];
@@ -38,7 +42,7 @@
 		
 	};
 	
-	namespace.mergeTemplates = function(parent, target, child, func) {
+	ns.template.merge = function(parent, target, child, func) {
 		
 		var $parent = ((parent instanceof jQuery) ? parent : $(parent));
 		
@@ -48,11 +52,12 @@
 		
 	};
 	
-	namespace.addTemplate = function(target, template, func) {
+	ns.template.add = function(target, template, func) {
 		
+		var result = false;
 		var $target = ((target instanceof jQuery) ? target : $(target));
 		
-		func = (func || 'html');
+		func = (func || 'append');
 		
 		if ($target.length) {
 			
@@ -70,13 +75,13 @@
 		
 	};
 	
-	namespace.getAndAddTemplate = function(target, template, data, func) {
+	ns.template.getAndAdd = function(target, template, data, func) {
 		
-		return this.addTemplate(target, this.getTemplate(template, data), func);
+		return this.add(target, this.get(template, data), func);
 		
 	};
 	
-	namespace.getTemplate = function(template, data) {
+	ns.template.get = function(template, data) {
 		
 		var result = '';
 		var $template = ((template instanceof jQuery) ? template : $(template)); // Test if already a jQuery object.
@@ -103,4 +108,7 @@
 		
 	};
 	
-}((window.TREE = (window.TREE || {}))));
+}(
+	window.TREE = (window.TREE || {}),
+	document
+));
