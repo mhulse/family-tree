@@ -11,17 +11,19 @@
 		
 		var self = this;
 		
-		ns.template.getAndAdd('body', '#tpl-modal');
+		$('body').append(ns.template.get('#tpl-modal'));
 		
-		$document.on('click', '.person', function() {
+		$document.on('click', '.person', function(event) {
 			
-			self.open();
+			var target = $(event.target);
+			
+			self.open(target);
 			
 		});
 		
 	};
 	
-	ns.modal.open = function() {
+	ns.modal.open = function(target) {
 		
 		var self = this;
 		var gc = function() {
@@ -33,7 +35,8 @@
 		};
 		
 		// Cache or get the jQuery modal window object:
-		$modal = (($modal instanceof jQuery) ? $modal : $('.modal'));
+		
+		$modal = ns.util.cache($modal, '.modal');
 		
 		$modal.addClass('modal-open');
 		
@@ -41,7 +44,7 @@
 			
 			if ($(event.target).hasClass('modal')) {
 				
-				gc.call($modal)
+				gc.call($modal);
 				
 			}
 			
@@ -52,10 +55,12 @@
 			gc.call($modal);
 			
 			// Do more robust checking here later …
-			ns.tree.add(
-				$modal.find('input').val(),
-				$modal.find('select option:selected').text()
-			);
+			ns.tree.add({
+				target: target,
+				name: $modal.find('input[name="name"]').val(),
+				relation: $modal.find('select[name="relation"]').val(),
+				sex: $modal.find('input[name="sex"]:checked').val(),
+			});
 			
 		});
 		

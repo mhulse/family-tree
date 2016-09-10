@@ -4,18 +4,25 @@
 			<div>
 				<label>
 					<span>Name:</span>
-					<input type="text" value="Susan G.">
+					<input type="text" name="name" value="Susan G.">
 				</label>
 			</div>
 			<div>
 				<label>
 					<span>Relationship:</span>
-					<select name="select">
-						<option value="value1">Mother</option>
-						<option value="value2">Father</option>
-						<option value="value3" selected>Spouse</option>
-						<option value="value3">Sibling</option>
+					<select name="relation">
+						<option value="mother">Mother</option>
+						<option value="father">Father</option>
+						<option value="child">Child</option>
+						<option value="spouse" selected>Spouse</option>
+						<option value="sibling">Sibling</option>
 					</select>
+				</label>
+			</div>
+			<div>
+				<label>
+					<input type="radio" name="sex" value="male"> Male
+					<input type="radio" name="sex" value="female" checked> Female
 				</label>
 			</div>
 			<div>

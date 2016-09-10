@@ -17,7 +17,7 @@ body {
 	display: -webkit-flex;
 	display: -moz-flex;
 	display: -ms-flexbox;
-	display: -flex;
+	display: flex;
 	-webkit-box-pack: center;
 	-webkit-justify-content: center;
 	-moz-box-pack: center;
@@ -49,9 +49,10 @@ table {
 	border-collapse: collapse;
 }
 table table { margin: 0; }
+table tr:empty { display: none; }
 table td {
 	text-align: center;
-	padding: 0;
+	padding: 10px;
 	vertical-align: top;
 }
 table td {

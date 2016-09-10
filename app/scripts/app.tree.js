@@ -10,28 +10,79 @@
 		
 		var person = ns.template.get('#tpl-person', {
 			name: 'Billy G.',
-			'class': 'you'
+			'class': 'you',
+			id: _.uniqueId('uid_')
 		});
 		
-		ns.template.add(
-			'#canvas',
-			ns.template.merge(node, 'td', person)
-		);
+		$('#canvas').html(ns.template.merge(node, person, 'td'));
 		
 	};
 	
-	ns.tree.add = function(name, kind) {
+	// Merge this with the above ^^^^^:
+	ns.tree.add = function(options) {
 		
+		var node;
+		var parents;
 		var person = ns.template.get('#tpl-person', {
-			name: name,
-			'class': 'spouse'
+			name: options.name,
+			'class': options.relation,
+			id: _.uniqueId('uid_')
 		});
 		
-		ns.template.add(
-			'.you',
-			person,
-			'after'
-		);
+		switch (options.relation) {
+			
+			case 'parent':
+				
+				// NOT COMPLETE!
+				
+				node = ns.template.get('#tpl-node');
+				
+				$(options.target.parent('td')).append(
+					ns.template.merge(node, options.target.siblings().andSelf().detach(), 'td')
+				);
+				
+				break;
+			
+			case 'child':
+				
+				var count;
+				var $tr;
+				
+				node = ns.template.get('#tpl-child');
+				
+				$tr = $(options.target.parents('tr')).next();
+				
+				$tr.append(
+					ns.template.merge(node, person)
+				);
+				
+				count = $tr.children('td').length;
+				
+				$(options.target).parent('td').attr('colspan', count);
+				
+				break;
+			
+			case 'sibling':
+				
+				$(options.target.parent('td'))[((options.sex == 'male') ? 'after' : 'before')](
+					ns.template.merge(ns.template.get('#tpl-sibling'), person)
+				);
+				
+				break;
+			
+			case 'spouse':
+				
+				$('.you')[((options.sex == 'male') ? 'after' : 'before')](
+					person
+				);
+				
+				break;
+			
+			default:
+				
+				// What to log and where?
+			
+		}
 		
 	};
 	

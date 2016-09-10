@@ -13,7 +13,9 @@
 		self.template.load([
 			'node',
 			'modal',
-			'person'
+			'person',
+			'sibling',
+			'child'
 		], 'app/partials/')
 			.then(function() {
 				
