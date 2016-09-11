@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang=en>
+<head>
+<meta charset=utf-8>
+<link rel="stylesheet" href="app/styles/app.css">
+<style>
+h3 { text-align: center; }
+</style>
+</head>
+<body>
+<div>
+	
+	<h3>Individual</h3>
+	
+	<table>
+		<tr>
+			<td>
+				<div>
+					<span class="you male">M</span>
+				</div>
+			</td>
+		</tr>
+	</table>
+	
+	<hr>
+	
+	<h3>Individual with parents</h3>
+	
+	<table>
+		<tr>
+			<td>
+				<div>
+					<span class="male">M</span>
+					<span class="female">F</span>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div>
+					<span class="you">M</span>
+				</div>
+			</td>
+		</tr>
+	</table>
+	
+	<hr>
+	
+	<h3>Married couple with parents</h3>
+	
+	<table>
+		<tr>
+			<td>
+				<div>
+					<span class="male">M</span>
+					<span class="female">F</span>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div>
+					<span class="you male">M</span>
+					<span class="female">F</span>
+				</div>
+			</td>
+		</tr>
+	</table>
+	
+	<hr>
+	
+	<h3>Married couple with child and parents</h3>
+	
+	<table>
+		<tr>
+			<td>
+				<div>
+					<span class="male">M</span>
+					<span class="female">F</span>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table>
+					<tr>
+						<td>
+							<div>
+								<span class="you male">M</span>
+								<span class="female">F</span>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div>
+								<span class="female">F</span>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	
+	<hr>
+	
+	<h3>Married couple with two children and parents</h3>
+	
+	<table>
+		<tr>
+			<td>
+				<div>
+					<span class="male">M</span>
+					<span class="female">F</span>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table>
+					<tr>
+						<td colspan="2">
+							<div>
+								<span class="you male">M</span>
+								<span class="female">F</span>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div>
+								<span class="male">M</span>
+							</div>
+						</td>
+						<td>
+							<div>
+								<span class="female">F</span>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	
+	<hr>
+	
+	<h3>Married couple with multiple children and parents</h3>
+	
+	<table>
+		<tr>
+			<td>
+				<div>
+					<span class="male">M</span>
+					<span class="female">F</span>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table>
+					<tr>
+						<td colspan="6">
+							<div>
+								<span class="you male">M</span>
+								<span class="female">F</span>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div>
+								<span class="male">M</span>
+							</div>
+						</td>
+						<td>
+							<div>
+								<span class="male">M</span>
+							</div>
+						</td>
+						<td>
+							<div>
+								<span class="male">M</span>
+							</div>
+						</td>
+						<td>
+							<div>
+								<span class="male">M</span>
+							</div>
+						</td>
+						<td>
+							<div>
+								<span class="female">F</span>
+							</div>
+						</td>
+						<td>
+							<div>
+								<span class="female">F</span>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	
+	<hr>
+	
+	<h3>Married couple with multiple children, grandchildren and parents</h3>
+	
+	<table class="family-tree">
+		<tr class="has-child has-children has-male-descendant">
+			<td colspan="3">
+				<div>
+					<span class="male">M</span>
+					<span class="female">F</span>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div>
+					<span class="male">M</span>
+				</div>
+			</td>
+			<td class="is-male-descendant">
+				<table>
+					<tr class="has-child has-children">
+						<td colspan="6">
+							<div>
+								<span class="you male">M</span>
+								<span class="female is-spouse">F</span>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div>
+								<span class="male">M</span>
+							</div>
+						</td>
+						<td>
+							<div>
+								<span class="male">M</span>
+							</div>
+						</td>
+						<td>
+							<div>
+								<span class="male">M</span>
+							</div>
+						</td>
+						<td>
+							<table>
+								<tr class="has-child has-children">
+									<td colspan="2">
+										<div>
+											<span class="male">M</span>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div>
+											<span class="female">F</span>
+										</div>
+									</td>
+									<td>
+										<div>
+											<span class="female">F</span>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</td>
+						<td>
+							<div>
+								<span class="female">F</span>
+							</div>
+						</td>
+						<td>
+							<table>
+								<tr class="has-child">
+									<td>
+										<div>
+											<span class="female">F</span>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<table>
+											<tr class="has-child has-children">
+												<td colspan="4">
+													<div>
+														<span class="male">M</span>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<div>
+														<span class="male">M</span>
+													</div>
+												</td>
+												<td>
+													<div>
+														<span class="female">F</span>
+													</div>
+												</td>
+												<td>
+													<div>
+														<span class="female">F</span>
+													</div>
+												</td>
+												<td>
+													<div>
+														<span class="female">F</span>
+													</div>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<div>
+					<span class="female">F</span>
+				</div>
+			</td>
+		</tr>
+	</table>
+	
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script>
+</script>
+</body>
+</html>

@@ -1,18 +1,19 @@
 *,
 *::before,
-*::after { box-sizing: border-box; }
-html,
-body {
-	width: 100%;
-	height: 100%;
+*::after {
+    -webkit-box-sizing: border-box;
+     -khtml-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+         -o-box-sizing: border-box;
+            box-sizing: border-box;
 }
-html,
-body { overflow: hidden; }
 body {
 	font-size: 16px;
 	font-family: sans-serif;
 	line-height: 1;
 	margin: 0;
+	padding-bottom: 1000px;
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -moz-flex;
@@ -25,6 +26,11 @@ body {
 	justify-content: center;
 }
 #canvas {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -34,9 +40,7 @@ body {
 	-o-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 }
-#canvase > table {
-	margin: 5px;
-	border: 2px solid #000;
+#canvas > table {
 	-webkit-box-flex: 1;
 	-webkit-flex: 1;
 	-moz-box-flex: 1;
@@ -45,27 +49,39 @@ body {
 	flex: 1;
 }
 table {
-	margin: 5px;
+	margin: 10px auto;
 	border-collapse: collapse;
 }
-table table { margin: 0; }
+table table { margin: 0 auto; }
 table tr:empty { display: none; }
 table td {
 	text-align: center;
-	padding: 10px;
 	vertical-align: top;
+	padding: 0;
+	outline: 1px solid rgba(0, 255, 255, .5);
 }
-table td {
-	border: 1px solid rgba(0, 0, 0, .1);
+table div {
+	padding: 25px;
+	xborder: 1px solid red;
+	display: -webkit-inline-box;
+	display: -webkit-inline-flex;
+	display: -moz-inline-box;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-moz-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
 }
-table span.you { background: yellow; }
 table span {
-	border: 1px solid red;
-	margin: 5px;
-	display: inline-block;
-	position: relative;
+	line-height: 50px;
+	width: 50px;
+	height: 50px;
+	xoverflow: hidden;
+	border: 2px solid black;
 }
-table span + span { margin-left: 0; }
+table span + span { margin-left: 50px; }
 
 div.modal {
 	background: rgba(0, 0, 0, .75);
@@ -123,3 +139,140 @@ div.modal-body span {
 	margin: 5px 0;
 	display: block;
 }
+
+/*--------------------------------------------------------------------*/
+
+.family-tree td,
+.family-tree div,
+.family-tree span { position: relative; }
+
+tr > td > div > span:not(.is-spouse)::before {
+	content: '';
+	width: 4px;
+	height: 25px;
+	background: green;
+	position: absolute;
+	top: calc(-50% - 4px);
+	right: 0;
+	left: calc(50% - 2px);
+	z-index: -1;
+}
+.family-tree > tbody > tr:first-child > td > div > span::before { display: none; }
+
+.family-tree tr + tr > td::before {
+	content: '';
+	height: 4px;
+	background: green;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: -1;
+}
+.family-tree tr + tr > td:first-child::before { left: 50%; }
+.family-tree tr + tr > td:last-child::before { right: 50%; }
+
+.family-tree td > div::before {
+	content: '';
+	height: 4px;
+	background: green;
+	position: absolute;
+	top: 50%;
+	left: 25%;
+	right: 25%;
+	z-index: -1;
+	-webkit-transform: translateY(-50%);
+	   -moz-transform: translateY(-50%);
+	    -ms-transform: translateY(-50%);
+	     -o-transform: translateY(-50%);
+	        transform: translateY(-50%);
+}
+.family-tree td > div::after {
+	content: '';
+	width: 4px;
+	height: 50%;
+	background: green;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: calc(50% - 2px);
+	z-index: -1;
+}
+
+/*
+tr.has-children + tr > td::before {
+	content: '';
+	height: 4px;
+	background: green;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: -1;
+}
+tr.has-children + tr > td:first-child::before { left: 50%; }
+tr.has-children + tr > td:last-child::before { right: 50%; }
+
+tr.has-child.has-male-descendant + tr > td:only-child::before {
+	left: calc(50% - 50px);
+	right: calc(50% - 2px);
+}
+tr.has-child.has-female-descendant + tr > td:only-child::before {
+	left: calc(50% - 2px);
+	right: calc(50% - 50px);
+}
+
+tr.has-child.has-male-descendant + tr > td:last-child::before {
+	right: calc(50% + 50px);
+}
+tr.has-child.has-female-descendant + tr > td:last-child::before {
+	right: calc(50% - 50px);
+}
+
+tr.has-child > td > div > span:not(.is-spouse)::before,
+tr.has-child + tr > td > div > span::before {
+	content: '';
+	width: 4px;
+	height: 25px;
+	background: green;
+	position: absolute;
+	top: calc(-50% - 4px);
+	right: 0;
+	left: calc(50% - 2px);
+	z-index: -1;
+}
+
+table.family-tree > tbody > tr:first-child > td > div > span::before { display: none; }
+
+div::before {
+	content: '';
+	height: 4px;
+	background: green;
+	position: absolute;
+	top: 50%;
+	left: 25%;
+	right: 25%;
+	z-index: -1;
+	-webkit-transform: translateY(-50%);
+	   -moz-transform: translateY(-50%);
+	    -ms-transform: translateY(-50%);
+	     -o-transform: translateY(-50%);
+	        transform: translateY(-50%);
+}
+
+tr.has-child > td > div::after {
+	content: '';
+	width: 4px;
+	height: 50%;
+	background: green;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: calc(50% - 2px);
+	z-index: -1;
+}
+*/
+
+.female { background: lightpink; }
+.male { background: lightcyan; }
+.you { background: yellow; }
