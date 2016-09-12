@@ -1,5 +1,10 @@
+body > div > .tree {
+	border: 2px solid #000;
+	background: #fff;
+}
+
 .tree {
-	margin: 10px auto;
+	margin: 50px auto;
 	border-collapse: collapse;
 }
 
@@ -37,6 +42,7 @@
 	height: 50px;
 	xoverflow: hidden;
 	border: 2px solid black;
+	z-index: 1;
 }
 .tree span + span { margin-left: 50px; }
 
@@ -49,7 +55,7 @@
 	top: calc(-50% - 4px);
 	right: 0;
 	left: calc(50% - 2px);
-	z-index: -1;
+	xz-index: -1;
 }
 .tree > tbody > tr:first-child > td > div > span::before { display: none; }
 
@@ -61,7 +67,7 @@
 	top: 0;
 	right: 0;
 	left: 0;
-	z-index: -1;
+	xz-index: -1;
 }
 .tree tr + tr > td:first-child::before { left: 50%; }
 .tree tr + tr > td:last-child::before { right: 50%; }
@@ -74,7 +80,7 @@
 	top: 50%;
 	left: 25%;
 	right: 25%;
-	z-index: -1;
+	xz-index: -1;
 	-webkit-transform: translateY(-50%);
 	   -moz-transform: translateY(-50%);
 	    -ms-transform: translateY(-50%);
@@ -94,7 +100,7 @@
 	bottom: 0;
 	right: 0;
 	left: calc(50% - 2px);
-	z-index: -1;
+	xz-index: -1;
 }
 .tree tr:only-child div:after {
 	display: none;
@@ -118,7 +124,7 @@
 	top: -29px;
 	width: 50px;
 	right: calc(50% + 2px);
-	z-index: 100;
+	xz-index: 100;
 }
 .tree span:only-child::after {
 	display: none;
