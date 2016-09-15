@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang=en>
+<head>
+<meta charset=utf-8>
+<link rel="stylesheet" href="app/styles/app.css">
+</head>
+<body>
+<div id="canvas">
+	
+	<table>
+		<tr>
+			<td colspan="3">
+				<div id="b">
+					<span>N</span
+					><span>N</span>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td><span>N</span></td>
+			<td><span>N</span></td>
+			<td><span>N</span></td>
+		</tr>
+	</table>
+	
+	<table>
+		<tr>
+			<td colspan="3">
+				<span id="a">N</span
+				><span id="c">N</span>
+			</td>
+		</tr>
+		<tr>
+			<td><span>N</span></td>
+			<td><span>N</span></td>
+			<td>
+				<table>
+					<tr>
+						<td colspan="3">
+							<span class="you">N</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<table>
+								<tr>
+									<td colspan="8">
+										<span>N</span>
+									</td>
+								</tr>
+								<tr>
+									<td><span>N</span></td>
+									<td><span>N</span></td>
+									<td><span>N</span></td>
+									<td><span>N</span></td>
+									<td><span>N</span></td>
+									<td><span>N</span></td>
+									<td><span>N</span></td>
+									<td><span>N</span></td>
+								</tr>
+							</table>
+						</td>
+						<td>
+							<table>
+								<tr>
+									<td colspan="4">
+										<span>N</span>
+									</td>
+								</tr>
+								<tr>
+									<td><span>N</span></td>
+									<td><span>N</span></td>
+									<td>
+										<table>
+											<tr>
+												<td colspan="3">
+													<span>N</span>
+												</td>
+											</tr>
+											<tr>
+												<td><span>N</span></td>
+												<td><span>N</span></td>
+												<td><span>N</span></td>
+											</tr>
+										</table>
+									</td>
+									<td><span>N</span></td>
+								</tr>
+							</table>
+						</td>
+						<td><span>N</span></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	
+	<table>
+		<tr>
+			<td colspan="6">
+				<div id="d">
+					<span>N</span
+					><span>N</span>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td><span>N</span></td>
+			<td><span>N</span></td>
+			<td><span>N</span></td>
+			<td><span>N</span></td>
+			<td><span>N</span></td>
+			<td><span>N</span></td>
+		</tr>
+	</table>
+	
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/2.0.7/jsPlumb.min.js"></script>
+<script>
+	// https://jsplumbtoolkit.com/community/doc/connect-examples.html
+	jsPlumb.ready(function() {
+		jsPlumb.connect({
+			source: 'a',
+			target: 'b',
+			anchors:[
+				'Top',
+				'Top'
+			]
+		});
+		jsPlumb.connect({
+			source: 'c',
+			target: 'd',
+			anchors:[
+				'Top',
+				'Top'
+			]
+		});
+	});
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script>
+	$(function() {});
+</script>
+</body>
+</html>

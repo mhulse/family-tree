@@ -1,0 +1,136 @@
+<style>
+	
+	.person {
+		text-align: center;
+		line-height: 150px;
+		width: 100px;
+		height: 150px;
+		border: 1px solid red;
+		position: absolute;
+	}
+	
+	.proxy {
+		line-height: 0;
+		width: 0;
+		height: 0;
+		position: absolute;
+	}
+	
+</style>
+
+<div id="canvas">
+	
+	<div id="uid1" class="person" has-spouse="uid1-2" style="top:100px;left:100px;">
+		
+		M
+		
+	</div>
+	
+	<!-- <div id="uid1-2" class="proxy" has-children="uid3,uid4,uid5" style="top:175px;left:248px;"></div> -->
+	
+	<div id="uid2" class="person" has-spouse="uid1-2" style="top:100px;left:300px;">
+		
+		F
+		
+	</div>
+	
+	<div id="uid3" class="person" style="top:400px;left:200px;">
+		
+		F
+		
+	</div>
+	
+	<div id="uid4" class="person" style="top:400px;left:400px;">
+		
+		F
+		
+	</div>
+	
+	<div id="uid5" class="person" style="top:400px;left:600px;">
+		
+		F
+		
+	</div>
+	
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/2.0.7/jsPlumb.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script>
+	$(function() {
+		function draw() {
+			var parents = {
+				connector: 'Straight',
+				anchor: 'AutoDefault'
+			};
+			var children = {};
+			var attrs = ['has-children', 'has-spouse'];
+			jsPlumb.batch(function() {
+				$.each(attrs, function(index1, value1) {
+					$('[' + value1 + ']').each(function() {
+						var $this = $(this);
+						var source = $this.attr('id');
+						var target = $this.attr(value1).split(',');
+						//var parent = ((target.length > 1) ? true : false);
+						$.each(target, function(index2, value2) {
+							jsPlumb.connect({
+								source: source,
+								target: value2,
+								isSource: true, // ?
+								isTarget: true, // ?
+								//maxConnections: (parent ? -1 : 1),
+								maxConnections: -1
+							}, (value1 == 'has-spouse' ? parents : children));
+						})
+					});
+				});
+			});
+			
+		}
+		function init() {
+			
+			// https://jsplumbtoolkit.com/community/doc/connect-examples.html
+			jsPlumb.ready(function() {
+				jsPlumb.importDefaults({
+					ConnectionsDetachable: false,
+					Connector: ['Flowchart', {
+						// stub: [
+						// 	50,
+						// 	50
+						// ],
+						gap: 0,
+						cornerRadius: 0,
+						alwaysRespectStubs: true
+					}],
+					Anchors:[
+						'Bottom',
+						'Top'
+					],
+					Endpoint: ['Dot', {
+						radius: 5
+					}],
+					EndpointStyles: [{
+						fillStyle: 'gray'
+					}, {
+						fillStyle: 'gray'
+					}],
+					PaintStyle: {
+						strokeStyle: 'gray',
+						fillStyle: 'gray',
+						radius: 0,
+						lineWidth: 3
+					},
+				});
+				jsPlumb.setContainer($('#canvas'));
+			});
+			
+			draw();
+			
+		}
+		jsPlumb.ready(function() {
+			
+			init();
+			
+		});
+	});
+</script>
