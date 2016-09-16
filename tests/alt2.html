@@ -5,8 +5,9 @@
 		line-height: 150px;
 		width: 100px;
 		height: 150px;
-		border: 1px solid red;
+		background: #eee;
 		position: absolute;
+		z-index: 1;
 	}
 	
 	.proxy {
@@ -14,7 +15,7 @@
 		width: 0;
 		height: 0;
 		position: absolute;
-		border: 5px solid red;
+		xborder: 5px solid red;
 	}
 	
 </style>
@@ -22,19 +23,35 @@
 <div id="canvas">
 	
 	<div
-		id="uid1"
+		id="root1"
 		class="person"
 		style="top:100px;left:100px;"
 	>
 		M
 	</div>
 	
-	<!-- <div id="uid1-2" class="proxy" has-children="uid3,uid4,uid5" style="top:175px;left:248px;"></div> -->
+	<div
+		id="root2"
+		class="person"
+		style="top:100px;left:300px;"
+	>
+		F
+	</div>
+	
+	<div
+		id="uid1"
+		class="person"
+		has-mother="root1"
+		has-father="root2"
+		style="top:400px;left:100px;"
+	>
+		M
+	</div>
 	
 	<div
 		id="uid2"
 		class="person"
-		style="top:100px;left:300px;"
+		style="top:400px;left:300px;"
 	>
 		F
 	</div>
@@ -42,7 +59,9 @@
 	<div
 		id="uid3"
 		class="person"
-		style="top:100px;left:800px;"
+		has-mother="root1"
+		has-father="root2"
+		style="top:400px;left:800px;"
 	>
 		M
 	</div>
@@ -50,19 +69,19 @@
 	<div
 		id="uid4"
 		class="person"
-		style="top:100px;left:1000px;"
+		has-mother="root1"
+		has-father="root2"
+		style="top:400px;left:1000px;"
 	>
 		M
 	</div>
-	
-	<!-- ========================================== -->
 	
 	<div
 		id="uid5"
 		class="person"
 		has-mother="uid1"
 		has-father="uid2"
-		style="top:400px;left:200px;"
+		style="top:700px;left:200px;"
 	>
 		F
 	</div>
@@ -72,7 +91,7 @@
 		class="person"
 		has-mother="uid1"
 		has-father="uid2"
-		style="top:400px;left:400px;"
+		style="top:700px;left:400px;"
 	>
 		F
 	</div>
@@ -82,7 +101,7 @@
 		class="person"
 		has-mother="uid1"
 		has-father="uid2"
-		style="top:400px;left:600px;"
+		style="top:700px;left:600px;"
 	>
 		F
 	</div>
@@ -91,7 +110,7 @@
 		id="uid8"
 		class="person"
 		has-mother="uid3"
-		style="top:400px;left:800px;"
+		style="top:700px;left:800px;"
 	>
 		M
 	</div>
@@ -100,7 +119,16 @@
 		id="uid9"
 		class="person"
 		has-mother="uid4"
-		style="top:400px;left:1000px;"
+		style="top:700px;left:1000px;"
+	>
+		M
+	</div>
+	
+	<div
+		id="uid10"
+		class="person"
+		has-mother="uid9"
+		style="top:1000px;left:1000px;"
 	>
 		M
 	</div>
@@ -114,37 +142,38 @@
 		
 		function draw() {
 			
-			var parents = {
+			var parentOverrides = {
 				connector: 'Straight',
 				anchor: 'AutoDefault'
 			};
-			var children = {};
-			var attrs = ['_has-parent'];
+			var childrenOverrides = {};
+			var attrPicks = ['_has-parents', '_has-spouse'];
+			
+			jsPlumb.detachEveryConnection();
+			jsPlumb.deleteEveryEndpoint();
 			
 			jsPlumb.batch(function() {
 				
-				$.each(attrs, function(index, value) {
+				$.each(attrPicks, function(index1, value1) {
 					
-					$('[' + value + ']').each(function() {
+					$('[' + value1 + ']').each(function(index2, value2) {
 						
 						var $this = $(this);
 						var source = $this.attr('id');
-						var target = $this.attr(value);
-						//var parent = ((target.length > 1) ? true : false);
+						var targets = $this.attr(value1).split(',');
 						
-						//$.each(target, function(index2, value2) {
+						$.each(targets, function(index3, value3) {
 							
 							jsPlumb.connect({
 								source: source,
-								target: target,
+								target: value3,
 								isSource: true, // ?
 								isTarget: true, // ?
 								//maxConnections: (parent ? -1 : 1),
 								maxConnections: -1
-							});
-							//}, (value1 == 'has-spouse' ? parents : children));
+							}, ((value1.indexOf('spouse') !== -1) ? parentOverrides : childrenOverrides));
 							
-						//});
+						});
 						
 					});
 					
@@ -174,19 +203,20 @@
 						'Top',
 						'Bottom'
 					],
-					Endpoint: ['Dot', {
-						radius: 5
-					}],
-					EndpointStyles: [{
-						fillStyle: 'gray'
-					}, {
-						fillStyle: 'gray'
-					}],
+					// Endpoint: ['Dot', {
+					// 	radius: 5
+					// }],
+					Endpoint: 'Blank',
+					// EndpointStyles: [{
+					// 	fillStyle: 'gray'
+					// }, {
+					// 	fillStyle: 'gray'
+					// }],
 					PaintStyle: {
 						strokeStyle: 'gray',
 						fillStyle: 'gray',
 						radius: 0,
-						lineWidth: 3
+						lineWidth: 4
 					},
 				});
 				
@@ -229,70 +259,81 @@
 			
 		}
 		
-		function go() {
+		function proxii() {
 			
-			var found = [];
 			var $canvas = $('#canvas');
-			
-			$('[has-mother][has-father]').each(function(key, value) {
-				
-				var $proxy;
-				var $child = $(value);
-				var mother = $child.attr('has-mother');
-				var father = $child.attr('has-father');
-				var proxyId = ('_' + mother + father);
-				var position;
-				
-				if ($.inArray((mother + father), found) == -1) {
-					
-					$proxy = $('<div />', {
-						'class': 'proxy',
-						id: proxyId
-					});
-					
-					position = getMidPoint($('#' + mother), $('#' + father));
-					
-					$proxy.css({
-						'top': position.top,
-						'left': position.left
-					});
-					
-					$canvas.append($proxy);
-					
-				}
-				
-				found.push(mother + father);
-				
-				$child.attr('_has-parent', proxyId);
-				
-			});
-			
-			$('[has-mother]:not([has-father]), [has-father]:not([has-mother])').each(function(key, value) {
-				
-				var $child = $(value);
-				var parent = ($child.attr('has-mother') || $child.attr('has-father'));
-				var proxyId = ('_' + parent);
-				var $proxy = $('<div />', {
-					'class': 'proxy',
-					id: proxyId
+			var proxy = function(id) {
+				var $result = $('<div />', {
+					'class': 'proxy'
 				});
+				if (id) {
+					$result.attr('id', id);
+				}
+				return $result;
+			};
+			var found = [];
+			
+			$('.person').each(function(key, value) {
 				
-				var position = getMidPoint($('#' + parent));
+				var $this = $(this);
+				var position = getMidPoint($this);
+				var parent = (($this.attr('has-mother') || '') + ($this.attr('has-father') || ''));
+				var proxyId = ('_' + $this.attr('id'));
+				var $proxy = proxy(proxyId);
+				
+				$this.attr('_proxy', proxyId);
 				
 				$proxy.css({
 					'top': position.top,
 					'left': position.left
 				});
 				
+				if (parent) {
+					
+					$proxy.attr('_has-parents', (parent ? ('_' + parent) : ''));
+					
+				}
+				
 				$canvas.append($proxy);
 				
-				$child.attr('_has-parent', proxyId);
+			});
+			
+			$('.person[has-mother][has-father]').each(function(key, value) {
+				
+				var $this = $(this);
+				var mother = $this.attr('has-mother');
+				var $mother = $('#' + mother);
+				var father = $this.attr('has-father');
+				var $father = $('#' + father);
+				var id = (mother + father);
+				var proxyId = ('_' + id);
+				var $proxy;
+				var position;
+				
+				if ($.inArray(id, found) == -1) {
+					
+					$proxy = proxy(proxyId);
+					
+					position = getMidPoint($mother, $father);
+					
+					$proxy.css({
+						'top': position.top,
+						'left': position.left
+					});
+					
+					$proxy.attr('_has-spouse', ($mother.attr('_proxy') + ',' + $father.attr('_proxy')));
+					
+					$canvas.append($proxy);
+					
+				}
+				
+				found.push(id);
 				
 			});
 			
 		}
 		
-		go();
+		proxii();
 		
 		init();
 		
