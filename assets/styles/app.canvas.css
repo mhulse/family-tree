@@ -1,0 +1,51 @@
+[ft-canvas=""] {
+	font: 400 14px/1.4 'Roboto Condensed', Arial, sans-serif;
+	background: #8c8a82;
+	background:
+		linear-gradient(to right, rgba(64, 63, 59, .25) 0, rgba(64, 63, 59, 0) 50px),
+		radial-gradient(circle at top, rgba(89, 88, 83, 0) 0, #595853 100%),
+		linear-gradient(to bottom, #dad6ca 0, #8c8a82 100%);
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+	overflow: hidden;
+}
+
+[ft-shadow]::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	border: 5px solid #403f3b;
+	box-shadow: inset 0 0 25px rgba(64, 63, 59, .75);
+	background: linear-gradient(to right, rgba(64, 63, 59, .25) 0, rgba(64, 63, 59, 0) 30px);
+	z-index: 100;
+	pointer-events: none;
+}
+
+/*----------------------------------------------------------------------------*/
+
+[ft-canvas="grid"] {
+	min-width: 10000px;
+	min-height: 10000px;
+	background-image:
+		linear-gradient(rgba(89, 88, 83, .2) 2px, transparent 2px),
+		linear-gradient(90deg, rgba(89, 88, 83, .2) 2px, transparent 2px),
+		linear-gradient(rgba(89, 88, 83, .2) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(89, 88, 83, .2) 1px, transparent 1px);
+	background-size:
+		100px 100px,
+		100px 100px,
+		10px 10px,
+		10px 10px;
+	background-position:
+		-2px -2px,
+		-2px -2px,
+		-1px -1px,
+		-1px -1px;
+}
