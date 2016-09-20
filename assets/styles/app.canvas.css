@@ -1,4 +1,4 @@
-[ft-canvas=""] {
+[ft-canvas] {
 	font: 400 14px/1.4 'Roboto Condensed', Arial, sans-serif;
 	background: #8c8a82;
 	background:
@@ -28,11 +28,9 @@
 	pointer-events: none;
 }
 
-/*----------------------------------------------------------------------------*/
-
-[ft-canvas="grid"] {
-	min-width: 10000px;
-	min-height: 10000px;
+[ft-grid] {
+	width: 10000px;
+	height: 10000px;
 	background-image:
 		linear-gradient(rgba(89, 88, 83, .2) 2px, transparent 2px),
 		linear-gradient(90deg, rgba(89, 88, 83, .2) 2px, transparent 2px),
@@ -48,4 +46,10 @@
 		-2px -2px,
 		-1px -1px,
 		-1px -1px;
+}
+
+[ft-wrap] {
+	pointer-events: none;
+	border: 4px solid red;
+	position: relative;
 }
