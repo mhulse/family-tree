@@ -88,6 +88,7 @@ http://justindavis.co/2015/07/13/easy-list-items-with-flexbox/
 	background: #fff;
 	width: 300px; /* Superflous considering the next rule. */
 	flex: 0 0 300px; /* Don‘t grow, don‘t shrink and stay fixed at `300px`. */
+	position: relative;
 }
 [ft-panel] { margin-left: -230px; }
 [ft-panel].is-open { margin-left: 0; }
@@ -156,17 +157,6 @@ http://justindavis.co/2015/07/13/easy-list-items-with-flexbox/
 
 /*--------------------------------------------------------------------*/
 
-[ft-wrap] { padding: 0 20px; }
-
-/*--------------------------------------------------------------------*/
-
-[ft-action] {
-	position: absolute;
-	right: 10px;
-	bottom: 10px;
-	left: 10px;
-}
-.is-closed [ft-action] {
-	width: 50px;
-	left: auto;
-}
+[ft-wrap] { padding: 10px; }
+[ft-wrap] > :first-child { margin-top: 0; }
+[ft-wrap] > :last-child { margin-bottom: 0; }

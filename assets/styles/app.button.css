@@ -77,12 +77,13 @@
 /*--------------------------------------------------------------------*/
 
 [ft-toggle] {
-	background: #444;
+	background-color: #444;
 	margin: 0;
 	padding: 0;
 	height: 50px; /* Same as below. */
 	cursor: pointer;
 	cursor: hand;
+	border-radius: 0;
 	display: block;
 	position: relative;
 	-webkit-touch-callout: none;
@@ -109,20 +110,29 @@
 	display: table;
 	clear: both;
 }
+[ft-toggle],
+[ft-toggle]:visited,
+[ft-toggle]:visited:hover,
+[ft-toggle]:focus,
+[ft-toggle]:focus:hover,
+[ft-toggle]:hover,
+[ft-toggle]:active { background-color: #444; }
 
 /*--------------------------------------------------------------------*/
 
-[ft-save] {
-	position: relative;
+[ft-action] {
 	line-height: 50px;
 	white-space: nowrap;
 	height: 50px;
 	margin: 0;
 	padding: 0;
+	position: relative;
 }
-.is-closed [ft-save]::after {
+
+[ft-action] + [ft-action] { margin-top: 10px; }
+
+.is-closed [ft-action]::after {
 	content: "";
-	background: url(../plugins/font-awesome/save.svg);
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: contain;
@@ -140,6 +150,32 @@
 	     -o-transform: translate(-50%, -50%);
 	        transform: translate(-50%, -50%);
 }
-.is-closed [ft-save] span { display: none; }
+.is-closed [ft-action] {
+	width: 50px;
+	align-self: flex-end;
+}
+.is-closed [ft-action] span { display: none; }
+
+/*--------------------------------------------------------------------*/
+
+[ft-action="save"],
+[ft-action="save"]:visited,
+[ft-action="save"]:visited:hover,
+[ft-action="save"]:focus,
+[ft-action="save"]:focus:hover,
+[ft-action="save"]:hover,
+[ft-action="save"]:active { background-color: #3c763d; }
+
+.is-closed [ft-action="save"]::after { background-image: url(../plugins/font-awesome/save.svg); }
+
+[ft-action="close"],
+[ft-action="close"]:visited,
+[ft-action="close"]:visited:hover,
+[ft-action="close"]:focus,
+[ft-action="close"]:focus:hover,
+[ft-action="close"]:hover,
+[ft-action="close"]:active { background-color: #d9534f; }
+
+.is-closed [ft-action="close"]::after { background-image: url(../plugins/font-awesome/times.svg); }
 
 /*--------------------------------------------------------------------*/

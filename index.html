@@ -51,7 +51,7 @@
 </head>
 <body ft-layout="cols">
 	
-	<div id="panel" ft-panel ft-layout="rows">
+	<div id="panel" class="is-closed" ft-panel ft-layout="rows">
 		
 		<div ft-head="reverse">
 			
@@ -70,20 +70,65 @@
 				
 				<div ft-content>
 					
-					<h1 h3>Lorem Ipsum</h1>
-					<h2 sh5>Incididunt laborum dolore est cupidatat</h2>
+					<div ft-wrap>
+						
+						<h1 h3>Lorem Ipsum</h1>
+						
+						<h2 sh5>Incididunt laborum dolore est cupidatat</h2>
+						
+						<p>Dolor duis consequat eu veniam id enim amet ad esse fugiat proident ullamco do sint qui esse ut.</p>
+						
+						<p>Laboris non in qui duis sit anim officia Lorem exercitation nisi.</p>
+						
+					</div>
 					
-					<p>Dolor duis consequat eu veniam id enim amet ad esse fugiat proident ullamco do sint qui esse ut.</p>
+					<div ft-legend>
+						
+						<h3 h5>Icons</h3>
+						
+						<ul ft-legend="keys">
+							<li ft-liner>
+								<span ft-icon="user"></span>
+								<span ft-liner="fill">Study Participant (that’s you)</span>
+							</li>
+							<li ft-liner>
+								<span ft-icon="commenting"></span>
+								<span ft-liner="fill">Discussed Colorectal Cancer</span>
+							</li>
+							<li ft-liner>
+								<span ft-icon></span>
+								<span ft-liner="fill">Colorectal Cancer Positive</span>
+							</li>
+							<li ft-liner>
+								<span ft-icon="book"></span>
+								<span ft-liner="fill">Health Informant</span>
+							</li>
+						</ul>
+						
+					</div>
 					
-					<p>Laboris non in qui duis sit anim officia Lorem exercitation nisi.</p>
+					<div ft-legend>
+						
+						<h3 h5>Lines</h3>
+						
+						<ul ft-legend="keys">
+							<li ft-liner>
+								<span ft-line="x demo"></span>
+								<span ft-liner="fill">Relatives</span>
+							</li>
+						</ul>
+						
+					</div>
 					
 				</div>
 				
 			</div>
 			
-			<div>
+			<div ft-layout="rows" ft-wrap>
 				
-				<button id="save" type="button" ft-button ft-save><span>Save and Close</span></button>
+				<button id="save" type="button" ft-button ft-action="save"><span>Save</span></button>
+				
+				<button id="close" type="button" ft-button ft-action="close"><span>Close</span></button>
 				
 			</div>
 			

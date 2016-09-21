@@ -1,12 +1,12 @@
 [ft-legend=""] {
 	margin: 25px 0;
 	padding: 10px 20px;
-	background: #eceae4;
+	background: #eee;
 	border-width: 4px 0;
 	border-style: solid;
-	border-color: #dad6ca;
+	border-color: #ddd;
 }
-[ft-legend=""] h3 { color: #8c8a82; }
+[ft-legend=""] h3 { color: #999; }
 [ft-legend=""] + [ft-legend=""] { margin-top: -29px; }
 [ft-legend=""] > :first-child { margin-top: 0 !important; }
 [ft-legend=""] > :last-child { margin-bottom: 0 !important; }
