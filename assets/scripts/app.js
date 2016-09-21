@@ -6,7 +6,19 @@
 	
 	ns.init = function() {
 		
-		console.log('Hello world!');
+		var self = this;
+		
+		this.root = self;
+		
+		self.main();
+		
+	};
+	
+	ns.main = function() {
+		
+		new this.panel.create();
+		
+		this.canvas.init();
 		
 	};
 	

@@ -1,0 +1,29 @@
+[ft-flag] {
+	line-height: 1;
+	margin: 0;
+	padding: 0;
+}
+[ft-flag]::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+[ft-flag] a {
+	text-align: center;
+	width: 70px;
+	padding: 10px 0;
+	display: block;
+	float: right;
+}
+[ft-flag] img[src*="logo.svg"] { display: none; }
+[ft-flag] img[src*="bug.svg"] {
+	height: 50px;
+	display: inline-block;
+}
+.is-open [ft-flag] a {
+	padding: 10px 20px 20px;
+	width: auto;
+	float: none;
+}
+.is-open [ft-flag] img[src*="logo.svg"] { display: block; }
+.is-open [ft-flag] img[src*="bug.svg"] { display: none; }

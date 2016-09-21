@@ -14,3 +14,28 @@ body { min-height: 100%; }
 
 html,
 body { overflow: hidden; }
+
+body { font: 500 14px/1.4 'Raleway', Arial, sans-serif; }
+
+a,
+a:visited {
+	color: lightseagreen;
+	text-decoration: none;
+}
+a:visited:hover,
+a:focus,
+a:focus:hover,
+a:hover,
+a:active {
+	color: hotpink;
+	text-decoration: underline;
+}
+
+::-moz-selection {
+	background: rgba(154, 205, 50, .55); /* yellowgreen */
+	text-shadow: none;
+}
+::selection {
+	background: rgba(154, 205, 50, .55); /* yellowgreen */
+	text-shadow: none;
+}
