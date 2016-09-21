@@ -1,5 +1,16 @@
-# Family Tree
+# Tree Stuff
 
-**Experiments using HTML, CSS and JavaScript to build an acyclic directed digraph for a genomic family pedigree tree …**
-
-This is a work in progress.
+```
+         * 
+        /|\
+       /*|O\
+      /*/|\*\
+     /X/O|*\X\
+    /*/X/|\X\*\
+   /O/*/X|*\O\X\
+  /*/O/X/|\X\O\*\
+ /X/O/*/X|O\X\*\O\
+/O/X/*/O/|\X\*\O\X\
+        |X|
+        |X|
+```
