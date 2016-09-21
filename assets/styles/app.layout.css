@@ -1,10 +1,24 @@
-body {
+[ft-layout~="rows"],
+[ft-layout~="cols"],
+[ft-layout~="center"] {
 	display: -webkit-flex;
 	display: -khtml-flex;
 	display: -moz-flex;
 	display: -ms-flex;
 	display: -o-flex;
 	display: flex
+}
+
+[ft-layout~="rows"] {
+	-webkit-flex-direction: column;
+	 -khtml-flex-direction: column;
+	   -moz-flex-direction: column;
+	    -ms-flex-direction: column;
+	     -o-flex-direction: column;
+	        flex-direction: column;
+}
+
+[ft-layout~="cols"] {
 	-webkit-flex-direction: row;
 	 -khtml-flex-direction: row;
 	   -moz-flex-direction: row;
@@ -13,62 +27,7 @@ body {
 	        flex-direction: row;
 }
 
-[ft-tree] {
-	position: relative;
-	-webkit-flex: 1;
-	 -khtml-flex: 1;
-	   -moz-flex: 1;
-	    -ms-flex: 1;
-	     -o-flex: 1;
-	        flex: 1;
-}
-
-[ft-panel] {
-	position: relative;
-	display: -webkit-flex;
-	display: -khtml-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
-	display: flex
-	-webkit-flex: 0 0 300px;
-	 -khtml-flex: 0 0 300px;
-	   -moz-flex: 0 0 300px;
-	    -ms-flex: 0 0 300px;
-	     -o-flex: 0 0 300px;
-	        flex: 0 0 300px;
-	-webkit-flex-direction: column;
-	 -khtml-flex-direction: column;
-	   -moz-flex-direction: column;
-	    -ms-flex-direction: column;
-	     -o-flex-direction: column;
-	        flex-direction: column;
-}
-[ft-panel] > * {
-	-webkit-flex: 1 0 auto;
-	 -khtml-flex: 1 0 auto;
-	   -moz-flex: 1 0 auto;
-	    -ms-flex: 1 0 auto;
-	     -o-flex: 1 0 auto;
-	        flex: 1 0 auto;
-}
-[ft-panel] > :first-child,
-[ft-panel] > :last-child {
-	-webkit-flex: 0 0 auto;
-	 -khtml-flex: 0 0 auto;
-	   -moz-flex: 0 0 auto;
-	    -ms-flex: 0 0 auto;
- 	     -o-flex: 0 0 auto;
-	        flex: 0 0 auto;
-}
-
-[ft-grid] {
-	display: -webkit-flex;
-	display: -khtml-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
-	display: flex
+[ft-layout~="center"] {
 	-webkit-align-items: center;
 	 -ms-grid-row-align: center;
 	  -webkit-box-align: center;
@@ -80,4 +39,134 @@ body {
 	          -moz-box-pack: center;
 	          -ms-flex-pack: center;
 	        justify-content: center;
+}
+
+[ft-layout~="fill"] {
+	-webkit-flex: 1;
+	 -khtml-flex: 1;
+	   -moz-flex: 1;
+	    -ms-flex: 1;
+	     -o-flex: 1;
+	        flex: 1;
+}
+
+/*--------------------------------------------------------------------*/
+
+/*
+http://justindavis.co/2015/07/13/easy-list-items-with-flexbox/
+<div ft-liner>
+	<any><any ft-liner="fill">... fills leftover space ...</span><any>
+</div>
+*/
+
+[ft-liner=""],
+[ft-liner=""] > * {
+	display: -webkit-flex;
+	display: -khtml-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-box-align: center;
+	   -ms-flex-align: center;
+	      align-items: center;
+}
+[ft-liner=""] > [ft-liner="fill"] {
+	-webkit-flex: 1 0 auto;
+	 -khtml-flex: 1 0 auto;
+	   -moz-flex: 1 0 auto;
+	    -ms-flex: 1 0 auto;
+	     -o-flex: 1 0 auto;
+	        flex: 1 0 auto;
+	margin-left: 10px;
+}
+
+/*--------------------------------------------------------------------*/
+
+/* http://callmenick.com/post/slide-and-push-menus-with-css3-transitions */
+[ft-panel] {
+	background: #fff;
+	width: 300px; /* Superflous considering the next rule. */
+	flex: 0 0 300px; /* Don‘t grow, don‘t shrink and stay fixed at `300px`. */
+}
+[ft-panel] { margin-left: -230px; }
+[ft-panel].is-open { margin-left: 0; }
+
+[ft-content] { display: none; }
+.is-open [ft-content] { display: block; }
+
+[ft-tree=""] {
+	font: 400 14px/1.4 'Roboto Condensed', Arial, sans-serif;
+	background: #eee;
+	position: relative;
+}
+
+[ft-tree=""]::before {
+	content: '';
+	border: 4px solid #000;
+	box-shadow: inset 0 0 24px rgba(0, 0, 0, .75);
+	z-index: 2;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	pointer-events: none;
+}
+
+[ft-tree="canvas"] {
+	background: #8c8a82;
+	background: linear-gradient(to right, rgba(0, 0, 0, .25) 0, rgba(0, 0, 0, 0) 50px),
+	            radial-gradient(circle at top, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .5) 100%),
+	            linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .25) 100%);
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+	overflow: hidden;
+}
+
+[ft-tree="grid"] {
+	width: 10000px;
+	height: 10000px;
+	background-image:
+		linear-gradient(rgba(0, 0, 0, .1) 2px, transparent 2px),
+		linear-gradient(90deg, rgba(0, 0, 0, .1) 2px, transparent 2px),
+		linear-gradient(rgba(0, 0, 0, .1) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(0, 0, 0, .1) 1px, transparent 1px);
+	background-size:
+		100px 100px,
+		100px 100px,
+		10px 10px,
+		10px 10px;
+	background-position:
+		-2px -2px,
+		-2px -2px,
+		-1px -1px,
+		-1px -1px;
+}
+
+[ft-tree="group"] {
+	pointer-events: none;
+	border: 4px solid red;
+	position: relative;
+}
+
+/*--------------------------------------------------------------------*/
+
+[ft-wrap] { padding: 0 20px; }
+
+/*--------------------------------------------------------------------*/
+
+[ft-action] {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	left: 10px;
+}
+.is-closed [ft-action] {
+	width: 50px;
+	left: auto;
 }

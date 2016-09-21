@@ -1,0 +1,38 @@
+h1, h2, h3, h4, h5, h6 {
+	font-family: Bitter, serif;
+	font-weight: 700;
+	letter-spacing: .02em;
+	word-spacing: .12em;
+	line-height: 1.2;
+	margin: 20px 0;
+	padding: 0;
+}
+h1 + h1, h1 + h2, h1 + h3, h1 + h4, h1 + h5, h1 + h6,
+h2 + h1, h2 + h2, h2 + h3, h2 + h4, h2 + h5, h2 + h6,
+h3 + h1, h3 + h2, h3 + h3, h3 + h4, h3 + h5, h3 + h6,
+h4 + h1, h4 + h2, h4 + h3, h4 + h4, h4 + h5, h4 + h6,
+h5 + h1, h5 + h2, h5 + h3, h5 + h4, h5 + h5, h5 + h6,
+h6 + h1, h6 + h2, h6 + h3, h6 + h4, h6 + h5, h6 + h6 { margin-top: -15px; }
+
+[sh1], [sh2], [sh3], [sh4], [sh5], [sh6] { font-weight: 400; }
+
+h1, [h1], [sh1] { font-size: 26px; }
+h2, [h2], [sh2] { font-size: 24px; }
+h3, [h3], [sh3] { font-size: 23px; }
+h4, [h4], [sh4] { font-size: 22px; }
+h5, [h5], [sh5] { font-size: 18px; }
+h6, [h6], [sh6] { font-size: 16px; }
+
+h1:empty { display: none; }
+
+p {
+	font-size: 16px;
+	margin: 20px 0;
+}
+
+[ft-head="reverse"] {
+	color: #fff;
+	background: #4f8699;
+	margin: 0;
+	padding: 0;
+}

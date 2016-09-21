@@ -1,0 +1,236 @@
+[ft-icon] {
+	width: 30px;
+	height: 30px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 16px;
+	border: 2px solid rgba(0, 0, 0, .25);
+	border-radius: 20px;
+	box-shadow:
+		inset 0 0 5px rgba(255, 255, 255, .5),
+		0 0 5px rgba(0, 0, 0, .25);
+}
+[ft-icon=""] { background-image: url(../images/bug.svg); }
+[ft-icon],
+[ft-icon]:visited,
+[ft-icon]:visited:hover,
+[ft-icon]:focus,
+[ft-icon]:focus:hover,
+[ft-icon]:hover,
+[ft-icon]:active {
+	color: #fff;
+	background-color: #00457b;
+	text-decoration: none;
+}
+[ft-icon="user"] { background-image: url(../plugins/font-awesome/user.svg); }
+[ft-icon="user"],
+[ft-icon="user"]:visited,
+[ft-icon="user"]:visited:hover,
+[ft-icon="user"]:focus,
+[ft-icon="user"]:focus:hover,
+[ft-icon="user"]:hover,
+[ft-icon="user"]:active { background-color: #eb7e36; }
+[ft-icon="commenting"] { background-image: url(../plugins/font-awesome/commenting.svg); }
+[ft-icon="commenting"],
+[ft-icon="commenting"]:visited,
+[ft-icon="commenting"]:visited:hover,
+[ft-icon="commenting"]:focus,
+[ft-icon="commenting"]:focus:hover,
+[ft-icon="commenting"]:hover,
+[ft-icon="commenting"]:active { background-color: #5cb85c; }
+[ft-icon="book"] { background-image: url(../plugins/font-awesome/book.svg); }
+[ft-icon="book"],
+[ft-icon="book"]:visited,
+[ft-icon="book"]:visited:hover,
+[ft-icon="book"]:focus,
+[ft-icon="book"]:focus:hover,
+[ft-icon="book"]:hover,
+[ft-icon="book"]:active { background-color: #9f5cb8; }
+[ft-icon="star"] { background-image: url(../plugins/font-awesome/star.svg); }
+[ft-icon="star"],
+[ft-icon="star"]:visited,
+[ft-icon="star"]:visited:hover,
+[ft-icon="star"]:focus,
+[ft-icon="star"]:focus:hover,
+[ft-icon="star"]:hover,
+[ft-icon="star"]:active { background-color: #d14242; }
+
+/*--------------------------------------------------------------------*/
+
+[ft-cardinal] {
+	position: absolute;
+	z-index: 999;
+}
+/* @TODO: Make prefixed: */
+[ft-cardinal~="n"] {
+	top: 0;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+[ft-cardinal~="s"] {
+	bottom: 0;
+	left: 50%;
+	transform: translate(-50%, 50%);
+}
+[ft-cardinal~="e"] {
+	top: 50%;
+	right: 0;
+	transform: translate(50%, -50%);
+}
+[ft-cardinal~="w"] {
+	top: 50%;
+	left: 0;
+	transform: translate(-50%, -50%);
+}
+[ft-cardinal~="nw"] {
+	top: 0;
+	left: 0;
+	transform: translate(-50%, -50%);
+}
+[ft-cardinal~="ne"] {
+	top: 0;
+	right: 0;
+	transform: translate(50%, -50%);
+}
+[ft-cardinal~="sw"] {
+	bottom: 0;
+	left: 0;
+	transform: translate(-50%, 50%);
+}
+[ft-cardinal~="se"] {
+	bottom: 0;
+	right: 0;
+	transform: translate(50%, 50%);
+}
+
+/*--------------------------------------------------------------------*/
+
+[person=""] {
+	width: 100px;
+	border-radius: 10px 10px 5px 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, .25);
+	position: absolute;
+	z-index: 1;
+}
+[person=""]::before {
+	content: '';
+	background: #fff;
+	position: absolute;
+	top: 0;
+	right: 10px;
+	bottom: 0;
+	left: 10px;
+	z-index: -1;
+	box-shadow: 0 5px 20px rgba(0, 0, 0, .2);
+}
+
+[person=""] > div:first-child {
+	border-width: 2px 2px 0 2px;
+	border-style: solid;
+	border-color: #355a66;
+	border-radius: 10px 10px 0 0;
+	padding: 10px 5px 0;
+	height: 100px;
+	position: relative;
+	z-index: 1;
+}
+[person=""] > div:first-child::before {
+	content: '';
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: contain;
+	width: 100%;
+	height: 100%;
+	display: block;
+	opacity: .5;
+}
+
+[person=""] > div:last-child {
+	line-height: 1.2;
+	text-align: center;
+	background: #fff;
+	background: linear-gradient(to bottom, #ddd 0,#ddd 5px, #fff 5px);
+	border-width: 0 2px 2px 2px;
+	border-style: solid;
+	border-color: #4f8699;
+	border-radius: 0 0 5px 5px;
+	margin-top: -1px;
+	padding: 15px 5px;
+}
+
+[person=""].male > div:first-child { background: linear-gradient(to bottom, #1bb0ce 0, #1bb0ce 50%, #1bb0ce 100%); }
+[person=""].male > div:first-child::before { background-image: url(../images/male.svg); }
+[person=""].female > div:first-child { background: linear-gradient(to bottom, #63ad92 0, #73c8a9 50%, #73c8a9 100%); }
+[person=""].female > div:first-child::before { background-image: url(../images/female.svg); }
+
+[person=""].deceased > div { border-color: #333; }
+[person=""].deceased > div:first-child { background: #666; }
+
+[person=""].you > div { border-color: #ebe936; }
+[person=""].you > div:first-child { background: linear-gradient(to bottom, #e4c846 0, #e4b760 50%, #d9ad4f 100%); }
+
+/*--------------------------------------------------------------------*/
+
+[ft-controls=""] {
+	font-size: 12px;
+	line-height: 1.1;
+	letter-spacing: .05em;
+	text-align: center;
+	text-transform: uppercase;
+	color: #fff;
+	cursor: pointer;
+	cursor: hand;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	opacity: 0;
+	-webkit-transition: opacity 100ms linear;
+	 -khtml-transition: opacity 100ms linear;
+	   -moz-transition: opacity 100ms linear;
+	    -ms-transition: opacity 100ms linear;
+	     -o-transition: opacity 100ms linear;
+	        transition: opacity 100ms linear;
+
+}
+[ft-controls=""]:hover { opacity: 1; }
+[ft-controls]:not([ft-controls=""]) {
+	background: rgba(0, 0, 0, .5);
+	position: absolute;
+	height: 50%;
+	right: 0;
+	left: 0;
+	-webkit-transition: background 100ms linear;
+	 -khtml-transition: background 100ms linear;
+	   -moz-transition: background 100ms linear;
+	    -ms-transition: background 100ms linear;
+	     -o-transition: background 100ms linear;
+	        transition: background 100ms linear;
+}
+[ft-controls]:not([ft-controls=""]):hover { background: rgba(0, 0, 0, .8); }
+[ft-controls]:not([ft-controls=""])::after {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	 -khtml-transform: translateY(-50%);
+	   -moz-transform: translateY(-50%);
+	    -ms-transform: translateY(-50%);
+	     -o-transform: translateY(-50%);
+	        transform: translateY(-50%);
+}
+[ft-controls="add"] { top: 0; }
+[ft-controls="add"]::after { content: "Add Relative" }
+[ft-controls="view"] { bottom: 0; }
+[ft-controls="view"]::after { content: "View Details" }
+
+/*--------------------------------------------------------------------*/
+
+[meta="name"] {
+	font-weight: bold;
+	color: #000;
+}
+[meta="lifespan"] { color: #14859c; }
+.deceased [meta] { color: #999; }

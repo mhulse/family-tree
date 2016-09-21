@@ -1,0 +1,21 @@
+/*
+<span person="name" ellipsis>Really Long Name Goes Here</span>
+*/
+
+[ft-ellipsis] {
+	display: block;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+[ft-off] {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}

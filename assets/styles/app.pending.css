@@ -1,0 +1,7 @@
+[ft-line] {
+	background: #6a5e72;
+	display: block;
+}
+[ft-line~="x"] { height: 5px; }
+[ft-line~="y"] { width: 5px; }
+[ft-line~="demo"] { width: 30px; }

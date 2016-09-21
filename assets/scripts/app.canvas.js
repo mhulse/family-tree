@@ -4,7 +4,7 @@
 	
 	var $canvas = $('#canvas');
 	var $grid = $('#grid');
-	var $wrap = $('#wrap');
+	var $group = $('#group');
 	
 	ns.canvas = {};
 	
@@ -50,7 +50,7 @@
 		};
 		var person;
 		
-		$wrap.find('.person').each(function() {
+		$group.find('.person').each(function() {
 			
 			person = $(this);
 			
@@ -60,7 +60,7 @@
 			
 		});
 		
-		$wrap.css({
+		$group.css({
 			width: size.x,
 			height: size.y
 		});
