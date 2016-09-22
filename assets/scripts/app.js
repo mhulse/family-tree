@@ -16,9 +16,15 @@
 	
 	ns.main = function() {
 		
+		var position = {};
+		
 		new this.panel.create();
 		
 		this.canvas.init();
+		
+		position = this.person.getPosition('#uid9');
+		console.log(position);
+		this.canvas.setCenter(position.x, position.y);
 		
 	};
 	

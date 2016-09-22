@@ -5,3 +5,31 @@
 [ft-line~="x"] { height: 5px; }
 [ft-line~="y"] { width: 5px; }
 [ft-line~="demo"] { width: 30px; }
+
+#crosshairs {
+	width: 30px;
+	height: 30px;
+	background: url(../plugins/font-awesome/crosshairs.svg) no-repeat center center;
+	background-size: cover;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	   -moz-transform: translate(-50%, -50%);
+	    -ms-transform: translate(-50%, -50%);
+	     -o-transform: translate(-50%, -50%);
+	        transform: translate(-50%, -50%);
+	z-index: 100;
+	pointer-events: none;
+	-webkit-filter: drop-shadow(0 0 5px #000);
+	        filter: drop-shadow(0 0 5px #000);
+}
+
+#dot {
+	border-radius: 50%;
+	width: 10px;
+	height: 10px;
+	background: red;
+	position: absolute;
+	z-index: 50;
+}

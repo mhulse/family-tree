@@ -147,11 +147,11 @@ http://justindavis.co/2015/07/13/easy-list-items-with-flexbox/
 		-2px -2px,
 		-1px -1px,
 		-1px -1px;
+	position: relative;
 }
 
 [ft-tree="group"] {
 	pointer-events: none;
-	border: 4px solid red;
 	position: relative;
 }
 
