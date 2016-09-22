@@ -25,8 +25,6 @@
 		
 		this._private.fit();
 		
-		this._private.collision();
-		
 		this.dimensions = this._private.dimensions();
 		
 		this.setCenter(this.dimensions.x, this.dimensions.y);
@@ -35,12 +33,9 @@
 	
 	ns.canvas.setCenter = function(x, y) {
 		
-		x -= ($canvas.height() / 2);
-		y -= ($canvas.width() / 2);
-		
 		$canvas
-			.scrollLeft(x)
-			.scrollTop(y);
+			.scrollTop(y - ($canvas.height() / 2))
+			.scrollLeft(x - ($canvas.width() / 2))
 		
 		this._private.dot(x, y);
 		
@@ -52,8 +47,8 @@
 		
 		$dot
 			.css({
-				top: y,
-				left: x
+				top: (y - ($dot.height() / 2)),
+				left: (x - ($dot.width() / 2))
 			})
 			.appendTo($grid);
 		
@@ -130,16 +125,6 @@
 		});
 		
 		return size;
-		
-	};
-	
-	ns.canvas._private.collision = function() {
-		
-		var colliders_selector = "#crosshairs";
-		var obstacles_selector = ".person";
-		var hits = $(colliders_selector).collision(obstacles_selector);
-		
-		console.log(hits);
 		
 	};
 	
