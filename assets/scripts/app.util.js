@@ -4,9 +4,10 @@
 	
 	ns.util = {};
 	
-	ns.util.cache = function(element, selector) {
+	// Check if passed variable is already a jQuery object; if not, assume it’s a string selector:
+	ns.util.cache = function(selector) {
 		
-		return ((element instanceof jQuery) ? element : $(selector || element));
+		return ( ! (selector instanceof jQuery)) ? $(selector) : selector;
 		
 	};
 	

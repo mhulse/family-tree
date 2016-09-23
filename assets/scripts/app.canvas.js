@@ -2,10 +2,10 @@
 	
 	'use strict';
 	
+	var $tree = $('#tree');
 	var $canvas = $('#canvas');
 	var $grid = $('#grid');
 	var $group = $('#group');
-	var $tree = $('#tree');
 	var $crosshairs = $('<div />', {
 		id: 'crosshairs'
 	});
@@ -35,9 +35,13 @@
 		
 		$canvas
 			.scrollTop(y - ($canvas.height() / 2))
-			.scrollLeft(x - ($canvas.width() / 2))
+			.scrollLeft(x - ($canvas.width() / 2));
 		
-		this._private.dot(x, y);
+		if (ns.debug) {
+			
+			this._private.dot(x, y);
+			
+		}
 		
 	};
 	
@@ -80,22 +84,21 @@
 		var g2p = new GrabToPan({
 			element: $canvas[0],
 			onActiveChanged: function(isActive) {
-				console.log('Grab-to-pan is ' + (isActive ? 'activated' : 'deactivated'));
+				//console.log('Grab-to-pan is ' + (isActive ? 'activated' : 'deactivated'));
 			}
 		});
 		
-		//g2p.activate();
+		g2p.activate();
 		
 		// https://github.com/Rob--W/grab-to-pan.js/issues/5
-		$grid.on('mouseover', function(event) {
-			
-			if (event.target.id == 'grid') {
-				g2p.activate();
-			} else {
+		$canvas.on({
+			mouseenter: function() {
 				g2p.deactivate();
+			},
+			mouseleave: function() {
+				g2p.activate();
 			}
-			
-		});
+		}, '[person]'); // Any person added to `$canvas`, now, and in the future.
 		
 		return g2p;
 		
@@ -109,13 +112,13 @@
 		};
 		var person;
 		
-		$group.find('.person').each(function() {
+		$group.find('[person]').each(function() {
 			
 			person = $(this);
 			
-			size.x = Math.max(size.x, person.width() + person.position().left);
+			size.x = Math.max(size.x, (person.width() + person.position().left));
 			
-			size.y = Math.max(size.y, person.height() + person.position().top);
+			size.y = Math.max(size.y, (person.height() + person.position().top));
 			
 		});
 		

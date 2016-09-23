@@ -7,10 +7,8 @@
 [ft-line~="demo"] { width: 30px; }
 
 #crosshairs {
-	width: 30px;
-	height: 30px;
-	background: url(../plugins/font-awesome/crosshairs.svg) no-repeat center center;
-	background-size: cover;
+	width: 20px;
+	height: 20px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -21,8 +19,32 @@
 	        transform: translate(-50%, -50%);
 	z-index: 100;
 	pointer-events: none;
-	-webkit-filter: drop-shadow(0 0 5px #000);
-	        filter: drop-shadow(0 0 5px #000);
+}
+#crosshairs::before,
+#crosshairs::after {
+	content: '';
+	width: 2px;
+	height: 2px;
+	background: rgba(0, 0, 0, .25);
+	position: absolute;
+}
+#crosshairs::before {
+	width: 100%;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	   -moz-transform: translateY(-50%);
+	    -ms-transform: translateY(-50%);
+	     -o-transform: translateY(-50%);
+	        transform: translateY(-50%);
+}
+#crosshairs::after {
+	height: 100%;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	   -moz-transform: translateX(-50%);
+	    -ms-transform: translateX(-50%);
+	     -o-transform: translateX(-50%);
+	        transform: translateX(-50%);
 }
 
 #dot {
@@ -32,4 +54,7 @@
 	background: red;
 	position: absolute;
 	z-index: 50;
+	pointer-events: none;
 }
+
+.proxy-debug { outline: 4px solid red; }

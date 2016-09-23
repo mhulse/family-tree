@@ -83,6 +83,12 @@ http://justindavis.co/2015/07/13/easy-list-items-with-flexbox/
 
 /*--------------------------------------------------------------------*/
 
+[ft-wrap] { padding: 10px; }
+[ft-wrap] > :first-child { margin-top: 0; }
+[ft-wrap] > :last-child { margin-bottom: 0; }
+
+/*--------------------------------------------------------------------*/
+
 /* http://callmenick.com/post/slide-and-push-menus-with-css3-transitions */
 [ft-panel] {
 	background: #fff;
@@ -93,70 +99,7 @@ http://justindavis.co/2015/07/13/easy-list-items-with-flexbox/
 [ft-panel] { margin-left: -230px; }
 [ft-panel].is-open { margin-left: 0; }
 
-[ft-content] { display: none; }
-.is-open [ft-content] { display: block; }
-
-[ft-tree=""] {
-	font: 400 14px/1.4 'Roboto Condensed', Arial, sans-serif;
-	background: #eee;
-	position: relative;
-}
-
-[ft-tree=""]::before {
-	content: '';
-	border: 4px solid #000;
-	box-shadow: inset 0 0 24px rgba(0, 0, 0, .75);
-	z-index: 2;
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	pointer-events: none;
-}
-
-[ft-tree="canvas"] {
-	background: #8c8a82;
-	background: linear-gradient(to right, rgba(0, 0, 0, .25) 0, rgba(0, 0, 0, 0) 50px),
-	            radial-gradient(circle at top, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .5) 100%),
-	            linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .25) 100%);
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	z-index: 1;
-	overflow: hidden;
-}
-
-[ft-tree="grid"] {
-	width: 10000px;
-	height: 10000px;
-	background-image:
-		linear-gradient(rgba(0, 0, 0, .1) 2px, transparent 2px),
-		linear-gradient(90deg, rgba(0, 0, 0, .1) 2px, transparent 2px),
-		linear-gradient(rgba(0, 0, 0, .1) 1px, transparent 1px),
-		linear-gradient(90deg, rgba(0, 0, 0, .1) 1px, transparent 1px);
-	background-size:
-		100px 100px,
-		100px 100px,
-		10px 10px,
-		10px 10px;
-	background-position:
-		-2px -2px,
-		-2px -2px,
-		-1px -1px,
-		-1px -1px;
-	position: relative;
-}
-
-[ft-tree="group"] {
-	pointer-events: none;
-	position: relative;
-}
-
 /*--------------------------------------------------------------------*/
 
-[ft-wrap] { padding: 10px; }
-[ft-wrap] > :first-child { margin-top: 0; }
-[ft-wrap] > :last-child { margin-bottom: 0; }
+[ft-content] { display: none; }
+.is-open [ft-content] { display: block; }

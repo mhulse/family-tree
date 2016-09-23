@@ -19,3 +19,18 @@
 	position: absolute;
 	width: 1px;
 }
+
+[ft-select="off"] {
+	cursor: default;
+	-webkit-touch-callout: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-tap-highlight-color: transparent;
+	-webkit-user-select: none;
+	 -khtml-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+ 	     -o-user-select: none;
+	        user-select: none;
+}
+[ft-select="off"] ::-moz-selection { background: transparent; }
+[ft-select="off"] ::selection { background: transparent; }

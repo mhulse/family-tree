@@ -4,6 +4,8 @@
 	
 	ns.root = {};
 	
+	ns.debug = true;
+	
 	ns.init = function() {
 		
 		this.root = this;
@@ -20,9 +22,11 @@
 		
 		this.canvas.init();
 		
-		position = this.person.getPosition('#uid1');
-		console.log(position);
+		position = this.person.getPosition('.you');
+		
 		this.canvas.setCenter(position.x, position.y);
+		
+		this.plumb.init();
 		
 	};
 	
