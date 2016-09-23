@@ -4,7 +4,7 @@
 	
 	ns.root = {};
 	
-	ns.debug = true;
+	ns.debug = false;
 	
 	ns.init = function() {
 		

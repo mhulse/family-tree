@@ -10,7 +10,7 @@
 		
 		this._private.proxii();
 		
-		//this._private.plumb();
+		this._private.plumb();
 		
 	};
 	
@@ -98,7 +98,7 @@
 				},
 			});
 			
-			jsPlumb.setContainer($('#canvas'));
+			jsPlumb.setContainer($('#group'));
 			
 			$self.draw();
 			
@@ -110,7 +110,7 @@
 		
 		var meta = function($obj) {
 			return {
-				offset: $obj.offset(),
+				position: $obj.position(),
 				width: $obj.width(),
 				height: $obj.height()
 			};
@@ -121,16 +121,16 @@
 		return {
 			top: (
 				(
-					(meta1.offset.top + (meta1.height / 2))
+					(meta1.position.top + (meta1.height / 2))
 					+
-					(meta2.offset.top + (meta2.height / 2))
+					(meta2.position.top + (meta2.height / 2))
 				) / 2
 			),
 			left: (
 				(
-					(meta1.offset.left + (meta1.width / 2))
+					(meta1.position.left + (meta1.width / 2))
 					+
-					(meta2.offset.left + (meta2.width / 2))
+					(meta2.position.left + (meta2.width / 2))
 				) / 2
 			)
 		};
@@ -143,7 +143,7 @@
 		var $group = $('#group');
 		var proxy = function(id) {
 			var $result = $('<div />', {
-				'class': ('proxy' + (ns.debug && ' proxy-debug'))
+				'class': ('proxy' + (ns.debug ? ' proxy-debug' : ''))
 			});
 			if (id) {
 				$result.attr('id', id);
