@@ -603,21 +603,18 @@
 							'<span class="add-relative" ft-controls="add"><span>Add Relative</span></span>',
 							'<span class="view-relative" ft-controls="view"><span>View Details</span></span>',
 						'</span>',
-						(
-							(person.details.study_participant && '<span ft-icon="user" ft-cardinal="se"></span>')
-							|| // You can only be one or the other, not both!
-							(person.details.health_informant && '<span ft-icon="book" ft-cardinal="se"></span>')
-						),
+						((person.details.study_participant) ? '<span ft-icon="user" ft-cardinal="se"></span>' : ''),
+						((person.details.health_informant) ? '<span ft-icon="book" ft-cardinal="se"></span>' : ''),
 						((person.details.crc_diagnosis == 'positive') ? '<span ft-icon ft-cardinal="nw"></span>' : ''),
 						((person.details.crc_discussed == 'yes') ? '<span ft-icon="commenting" ft-cardinal="ne"></span>' : ''),
 					'</div>',
 					'<div>',
 						'<span meta="name" ft-ellipsis>',
-							(person.details.person_name && person.details.person_name || person.identity), // What exactly IS `identity`?
+							person.details.person_name,
 						'</span>',
 						'<span meta="lifespan">',
-							(person.details.person_birth_year && person.details.person_birth_year),
-							(person.details.person_death_year && ('–' + person.details.person_death_year)),
+							((person.details.person_birth_year) ? person.details.person_birth_year : ''),
+							((person.details.person_death_year) ? ('–' + person.details.person_death_year) : ''),
 						'</span>',
 					'</div>'
 				].join('\n');
