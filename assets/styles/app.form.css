@@ -1,0 +1,20 @@
+[ft-form] label {
+	margin: 2px;
+	padding: 5px;
+	border-radius: 5px;
+	border: 1px solid transparent;
+	display: block;
+}
+
+[ft-form] label.missing {
+	color: #a94442;
+	background: #f2dede;
+	border-color: #ebccd1;
+}
+
+[ft-form] label > input[type="text"],
+[ft-form] label > select { width: 100%; }
+[ft-form] label > span {
+	margin: 0 0 5px;
+	display: block;
+}

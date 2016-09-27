@@ -177,7 +177,8 @@
 			
 		});
 		
-		$('[person][has-mother][has-father]').each(function(key, value) {
+		// Must have a non-empty mother and father attributes:
+		$('[person][has-mother]:not([has-mother=""])[has-father]:not([has-father=""])').each(function(key, value) {
 			
 			var $this = $(this);
 			var mother = $this.attr('has-mother');

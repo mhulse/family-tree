@@ -34,3 +34,6 @@
 }
 [ft-select="off"] ::-moz-selection { background: transparent; }
 [ft-select="off"] ::selection { background: transparent; }
+
+.hide { display: none; }
+.show { display: block; }

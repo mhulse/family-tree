@@ -107,7 +107,7 @@
 
 [person] {
 	width: 100px;
-	min-height: 100px;
+	min-height: 160px;
 	border-radius: 10px 10px 5px 5px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, .25);
 	position: absolute;
@@ -220,7 +220,7 @@
 	        transition: background 100ms linear;
 }
 [ft-controls]:not([ft-controls=""]):hover { background: rgba(0, 0, 0, .8); }
-[ft-controls]:not([ft-controls=""])::after {
+[ft-controls]:not([ft-controls=""]) span {
 	position: absolute;
 	width: 100%;
 	left: 0;
@@ -231,11 +231,10 @@
 	    -ms-transform: translateY(-50%);
 	     -o-transform: translateY(-50%);
 	        transform: translateY(-50%);
+	pointer-events: none; /* Required! See: http://stackoverflow.com/a/38356513/922323 */
 }
 [ft-controls="add"] { top: 0; }
-[ft-controls="add"]::after { content: "Add Relative" }
 [ft-controls="view"] { bottom: 0; }
-[ft-controls="view"]::after { content: "View Details" }
 
 /*--------------------------------------------------------------------*/
 

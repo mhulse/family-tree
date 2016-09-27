@@ -27,6 +27,8 @@
 	<link rel="stylesheet" href="assets/styles/app.branding.css">
 	<link rel="stylesheet" href="assets/styles/app.util.css">
 	<link rel="stylesheet" href="assets/styles/app.tree.css">
+	<link rel="stylesheet" href="assets/styles/app.modal.css">
+	<link rel="stylesheet" href="assets/styles/app.form.css">
 	<link rel="stylesheet" href="assets/styles/app.pending.css">
 	
 </head>
@@ -129,396 +131,7 @@
 			
 			<div id="grid" ft-tree="grid" ft-layout="center">
 				
-				<div id="group" ft-tree="group">
-					
-					<div
-						id="uid1"
-						class="male"
-						person='{
-							name: "Doug"
-						}'
-						style="top:0;left:0;"
-					>
-						<div>
-							<span ft-controls>
-								<span ft-controls="add"></span>
-								<span ft-controls="view"></span>
-							</span>
-							<span ft-icon="book" ft-cardinal="n"></span>
-							<span ft-icon="book" ft-cardinal="s"></span>
-							<span ft-icon="book" ft-cardinal="e"></span>
-							<span ft-icon="book" ft-cardinal="w"></span>
-							<span ft-icon="book" ft-cardinal="nw"></span>
-							<span ft-icon="book" ft-cardinal="ne"></span>
-							<span ft-icon="book" ft-cardinal="sw"></span>
-							<span ft-icon="book" ft-cardinal="se"></span>
-						</div>
-						<div>
-							<span meta="name" ft-ellipsis>Really Long Name Goes Here</span>
-							<span meta="lifespan">1915–1975</span>
-							<span ft-icon="book" ft-cardinal="s"></span>
-							<span ft-icon="book" ft-cardinal="sw"></span>
-							<span ft-icon="book" ft-cardinal="se"></span>
-						</div>
-					</div>
-					
-					<div
-						id="uid2"
-						class="female deceased"
-						person='{
-							name: "Judy"
-						}'
-						style="top:0;left:200px;"
-					>
-						<div>
-							<span ft-controls>
-								<span ft-controls="add"></span>
-								<span ft-controls="view"></span>
-							</span>
-							<span ft-icon="book" ft-cardinal="n"></span>
-							<span ft-icon="book" ft-cardinal="s"></span>
-							<span ft-icon="book" ft-cardinal="e"></span>
-							<span ft-icon="book" ft-cardinal="w"></span>
-							<span ft-icon="book" ft-cardinal="nw"></span>
-							<span ft-icon="book" ft-cardinal="ne"></span>
-							<span ft-icon="book" ft-cardinal="sw"></span>
-							<span ft-icon="book" ft-cardinal="se"></span>
-						</div>
-						<div>
-							<span meta="name" ft-ellipsis>Really Long Name Goes Here</span>
-							<span meta="lifespan">1915–1975</span>
-							<span ft-icon="book" ft-cardinal="s"></span>
-							<span ft-icon="book" ft-cardinal="sw"></span>
-							<span ft-icon="book" ft-cardinal="se"></span>
-						</div>
-					</div>
-					
-					<div
-						id="uid3"
-						class="male"
-						person='{
-							name: "Billy"
-						}'
-						has-mother="uid1"
-						has-father="uid2"
-						style="top:300px;left:0;"
-					>
-						<div>
-							<span ft-controls>
-								<span ft-controls="add"></span>
-								<span ft-controls="view"></span>
-							</span>
-							<span ft-icon="book" ft-cardinal="n"></span>
-							<span ft-icon="book" ft-cardinal="s"></span>
-							<span ft-icon="book" ft-cardinal="e"></span>
-							<span ft-icon="book" ft-cardinal="w"></span>
-							<span ft-icon="book" ft-cardinal="nw"></span>
-							<span ft-icon="book" ft-cardinal="ne"></span>
-							<span ft-icon="book" ft-cardinal="sw"></span>
-							<span ft-icon="book" ft-cardinal="se"></span>
-						</div>
-						<div>
-							<span meta="name" ft-ellipsis>Really Long Name Goes Here</span>
-							<span meta="lifespan">1915–1975</span>
-							<span ft-icon="book" ft-cardinal="s"></span>
-							<span ft-icon="book" ft-cardinal="sw"></span>
-							<span ft-icon="book" ft-cardinal="se"></span>
-						</div>
-					</div>
-					
-					<div
-						id="uid4"
-						class="female"
-						person='{
-							name: "Wilma"
-						}'
-						style="top:300px;left:200px;"
-					>
-						<div>
-							<span ft-controls>
-								<span ft-controls="add"></span>
-								<span ft-controls="view"></span>
-							</span>
-							<span ft-icon="book" ft-cardinal="n"></span>
-							<span ft-icon="book" ft-cardinal="s"></span>
-							<span ft-icon="book" ft-cardinal="e"></span>
-							<span ft-icon="book" ft-cardinal="w"></span>
-							<span ft-icon="book" ft-cardinal="nw"></span>
-							<span ft-icon="book" ft-cardinal="ne"></span>
-							<span ft-icon="book" ft-cardinal="sw"></span>
-							<span ft-icon="book" ft-cardinal="se"></span>
-						</div>
-						<div>
-							<span meta="name" ft-ellipsis>Really Long Name Goes Here</span>
-							<span meta="lifespan">1915–1975</span>
-							<span ft-icon="book" ft-cardinal="s"></span>
-							<span ft-icon="book" ft-cardinal="sw"></span>
-							<span ft-icon="book" ft-cardinal="se"></span>
-						</div>
-					</div>
-						
-					<div
-						id="uid5"
-						class="male"
-						person='{
-							name: "Bubba"
-						}'
-						has-mother="uid1"
-						has-father="uid2"
-						style="top:300px;left:700px;"
-					>
-						<div>
-							<span ft-controls>
-								<span ft-controls="add"></span>
-								<span ft-controls="view"></span>
-							</span>
-							<span ft-icon="book" ft-cardinal="n"></span>
-							<span ft-icon="book" ft-cardinal="s"></span>
-							<span ft-icon="book" ft-cardinal="e"></span>
-							<span ft-icon="book" ft-cardinal="w"></span>
-							<span ft-icon="book" ft-cardinal="nw"></span>
-							<span ft-icon="book" ft-cardinal="ne"></span>
-							<span ft-icon="book" ft-cardinal="sw"></span>
-							<span ft-icon="book" ft-cardinal="se"></span>
-						</div>
-						<div>
-							<span meta="name" ft-ellipsis>Really Long Name Goes Here</span>
-							<span meta="lifespan">1915–1975</span>
-							<span ft-icon="book" ft-cardinal="s"></span>
-							<span ft-icon="book" ft-cardinal="sw"></span>
-							<span ft-icon="book" ft-cardinal="se"></span>
-						</div>
-					</div>
-						
-					<div
-						id="uid6"
-						class="male you"
-						person='{
-							name: "Sam"
-						}'
-						has-mother="uid1"
-						has-father="uid2"
-						style="top:300px;left:900px;"
-					>
-						<div>
-							<span ft-controls>
-								<span ft-controls="add"></span>
-								<span ft-controls="view"></span>
-							</span>
-							<span ft-icon="book" ft-cardinal="n"></span>
-							<span ft-icon="book" ft-cardinal="s"></span>
-							<span ft-icon="book" ft-cardinal="e"></span>
-							<span ft-icon="book" ft-cardinal="w"></span>
-							<span ft-icon="book" ft-cardinal="nw"></span>
-							<span ft-icon="book" ft-cardinal="ne"></span>
-							<span ft-icon="book" ft-cardinal="sw"></span>
-							<span ft-icon="book" ft-cardinal="se"></span>
-						</div>
-						<div>
-							<span meta="name" ft-ellipsis>Really Long Name Goes Here</span>
-							<span meta="lifespan">1915–1975</span>
-							<span ft-icon="book" ft-cardinal="s"></span>
-							<span ft-icon="book" ft-cardinal="sw"></span>
-							<span ft-icon="book" ft-cardinal="se"></span>
-						</div>
-					</div>
-					
-					<div
-						id="uid7"
-						class="female"
-						person='{
-							name: "Patty"
-						}'
-						has-mother="uid3"
-						has-father="uid4"
-						style="top:600px;left:100px;"
-					>
-						<div>
-							<span ft-controls>
-								<span ft-controls="add"></span>
-								<span ft-controls="view"></span>
-							</span>
-							<span ft-icon="book" ft-cardinal="n"></span>
-							<span ft-icon="book" ft-cardinal="s"></span>
-							<span ft-icon="book" ft-cardinal="e"></span>
-							<span ft-icon="book" ft-cardinal="w"></span>
-							<span ft-icon="book" ft-cardinal="nw"></span>
-							<span ft-icon="book" ft-cardinal="ne"></span>
-							<span ft-icon="book" ft-cardinal="sw"></span>
-							<span ft-icon="book" ft-cardinal="se"></span>
-						</div>
-						<div>
-							<span meta="name" ft-ellipsis>Really Long Name Goes Here</span>
-							<span meta="lifespan">1915–1975</span>
-							<span ft-icon="book" ft-cardinal="s"></span>
-							<span ft-icon="book" ft-cardinal="sw"></span>
-							<span ft-icon="book" ft-cardinal="se"></span>
-						</div>
-					</div>
-					
-					<div
-						id="uid8"
-						class="female"
-						person='{
-							name: "Joanna"
-						}'
-						has-mother="uid3"
-						has-father="uid4"
-						style="top:600px;left:300px;"
-					>
-						<div>
-							<span ft-controls>
-								<span ft-controls="add"></span>
-								<span ft-controls="view"></span>
-							</span>
-							<span ft-icon="book" ft-cardinal="n"></span>
-							<span ft-icon="book" ft-cardinal="s"></span>
-							<span ft-icon="book" ft-cardinal="e"></span>
-							<span ft-icon="book" ft-cardinal="w"></span>
-							<span ft-icon="book" ft-cardinal="nw"></span>
-							<span ft-icon="book" ft-cardinal="ne"></span>
-							<span ft-icon="book" ft-cardinal="sw"></span>
-							<span ft-icon="book" ft-cardinal="se"></span>
-						</div>
-						<div>
-							<span meta="name" ft-ellipsis>Really Long Name Goes Here</span>
-							<span meta="lifespan">1915–1975</span>
-							<span ft-icon="book" ft-cardinal="s"></span>
-							<span ft-icon="book" ft-cardinal="sw"></span>
-							<span ft-icon="book" ft-cardinal="se"></span>
-						</div>
-					</div>
-					
-					<div
-						id="uid9"
-						class="female"
-						person='{
-							name: "Barbara"
-						}'
-						has-mother="uid3"
-						has-father="uid4"
-						style="top:600px;left:500px;"
-					>
-						<div>
-							<span ft-controls>
-								<span ft-controls="add"></span>
-								<span ft-controls="view"></span>
-							</span>
-							<span ft-icon="book" ft-cardinal="n"></span>
-							<span ft-icon="book" ft-cardinal="s"></span>
-							<span ft-icon="book" ft-cardinal="e"></span>
-							<span ft-icon="book" ft-cardinal="w"></span>
-							<span ft-icon="book" ft-cardinal="nw"></span>
-							<span ft-icon="book" ft-cardinal="ne"></span>
-							<span ft-icon="book" ft-cardinal="sw"></span>
-							<span ft-icon="book" ft-cardinal="se"></span>
-						</div>
-						<div>
-							<span meta="name" ft-ellipsis>Really Long Name Goes Here</span>
-							<span meta="lifespan">1915–1975</span>
-							<span ft-icon="book" ft-cardinal="s"></span>
-							<span ft-icon="book" ft-cardinal="sw"></span>
-							<span ft-icon="book" ft-cardinal="se"></span>
-						</div>
-					</div>
-					
-					<div
-						id="uid10"
-						class="male"
-						person='{
-							name: "Phil"
-						}'
-						has-mother="uid5"
-						style="top:600px;left:700px;"
-					>
-						<div>
-							<span ft-controls>
-								<span ft-controls="add"></span>
-								<span ft-controls="view"></span>
-							</span>
-							<span ft-icon="book" ft-cardinal="n"></span>
-							<span ft-icon="book" ft-cardinal="s"></span>
-							<span ft-icon="book" ft-cardinal="e"></span>
-							<span ft-icon="book" ft-cardinal="w"></span>
-							<span ft-icon="book" ft-cardinal="nw"></span>
-							<span ft-icon="book" ft-cardinal="ne"></span>
-							<span ft-icon="book" ft-cardinal="sw"></span>
-							<span ft-icon="book" ft-cardinal="se"></span>
-						</div>
-						<div>
-							<span meta="name" ft-ellipsis>Really Long Name Goes Here</span>
-							<span meta="lifespan">1915–1975</span>
-							<span ft-icon="book" ft-cardinal="s"></span>
-							<span ft-icon="book" ft-cardinal="sw"></span>
-							<span ft-icon="book" ft-cardinal="se"></span>
-						</div>
-					</div>
-					
-					<div
-						id="uid11"
-						class="male"
-						person='{
-							name: "Mark"
-						}'
-						has-mother="uid6"
-						style="top:600px;left:900px;"
-					>
-						<div>
-							<span ft-controls>
-								<span ft-controls="add"></span>
-								<span ft-controls="view"></span>
-							</span>
-							<span ft-icon="book" ft-cardinal="n"></span>
-							<span ft-icon="book" ft-cardinal="s"></span>
-							<span ft-icon="book" ft-cardinal="e"></span>
-							<span ft-icon="book" ft-cardinal="w"></span>
-							<span ft-icon="book" ft-cardinal="nw"></span>
-							<span ft-icon="book" ft-cardinal="ne"></span>
-							<span ft-icon="book" ft-cardinal="sw"></span>
-							<span ft-icon="book" ft-cardinal="se"></span>
-						</div>
-						<div>
-							<span meta="name" ft-ellipsis>Really Long Name Goes Here</span>
-							<span meta="lifespan">1915–1975</span>
-							<span ft-icon="book" ft-cardinal="s"></span>
-							<span ft-icon="book" ft-cardinal="sw"></span>
-							<span ft-icon="book" ft-cardinal="se"></span>
-						</div>
-					</div>
-					
-					<div
-						id="uid12"
-						class="male"
-						person='{
-							name: "Keith"
-						}'
-						has-mother="uid11"
-						style="top:900px;left:900px;"
-					>
-						<div>
-							<span ft-controls>
-								<span ft-controls="add"></span>
-								<span ft-controls="view"></span>
-							</span>
-							<span ft-icon="book" ft-cardinal="n"></span>
-							<span ft-icon="book" ft-cardinal="s"></span>
-							<span ft-icon="book" ft-cardinal="e"></span>
-							<span ft-icon="book" ft-cardinal="w"></span>
-							<span ft-icon="book" ft-cardinal="nw"></span>
-							<span ft-icon="book" ft-cardinal="ne"></span>
-							<span ft-icon="book" ft-cardinal="sw"></span>
-							<span ft-icon="book" ft-cardinal="se"></span>
-						</div>
-						<div>
-							<span meta="name" ft-ellipsis>Really Long Name Goes Here</span>
-							<span meta="lifespan">1915–1975</span>
-							<span ft-icon="book" ft-cardinal="s"></span>
-							<span ft-icon="book" ft-cardinal="sw"></span>
-							<span ft-icon="book" ft-cardinal="se"></span>
-						</div>
-					</div>
-					
-				</div>
+				<div id="group" ft-tree="group"></div>
 				
 			</div>
 			
@@ -526,12 +139,100 @@
 		
 	</div>
 	
+	<div id="modal" ft-modal>
+		<form id="modal-form" ft-form ft-modal="container">
+			<input id="add-person-to-uid" type="hidden">
+			<button class="modal-close" ft-close>Close</button>
+			<section ft-modal="wrapper">
+				<header>
+					<h3 id="modal-form-header-title"></h3>
+				</header>
+				<section ft-modal="body">
+					<div id="modal-form-person-name">
+						<label>
+							<span>Name:</span>
+							<input id="person-name" class="validate" type="text">
+						</label>
+					</div>
+					<div id="modal-form-person-relationship">
+						<label>
+							<span>Relationship:</span>
+							<select id="person-relationship" class="validate">
+								<option selected value="">Choose …</option>
+								<!-- <option value="parents">Parents</option> -->
+								<option value="parent">Mother</option>
+								<option value="parent">Father</option>
+								<option value="child">Daughter</option>
+								<option value="child">Son</option>
+								<option value="sibling">Brother</option>
+								<option value="sibling">Sister</option>
+							</select>
+						</label>
+					</div>
+					<div id="modal-form-person-birth-year">
+						<label>
+							<span>Birth year:</span>
+							<select id="person-birth-year" class="validate years">
+								<option selected value="">Choose …</option>
+							</select>
+						</label>
+					</div>
+					<div id="modal-form-person-status">
+						<label>
+							<span>Status:</span>
+							<select id="person-status" class="validate">
+								<option selected value="">Choose …</option>
+								<option value="living">Living</option>
+								<option value="deceased">Deceased</option>
+								<option value="unknown">Unknown</option>
+							</select>
+						</label>
+					</div>
+					<div id="modal-form-person-death-year">
+						<label>
+							<span>Death year:</span>
+							<select id="person-death-year" class="validate years">
+								<option selected value="">Choose …</option>
+							</select>
+						</label>
+					</div>
+					<div id="modal-form-crc-diagnosis">
+						<label>
+							<span>Colorectal cancer diagnosis:</span>
+							<select id="crc-diagnosis" class="validate">
+								<option selected value="">Choose …</option>
+								<option value="positive">Positive</option>
+								<option value="negative">Negative</option>
+								<option value="unknown">Unknown</option>
+							</select>
+						</label>
+					</div>
+					<div id="modal-form-crc-discussed">
+						<label>
+							<span>Discussed colorectal cancer?</span>
+							<input id="crc-discussed" type="checkbox" value="yes"> Yes
+						</label>
+					</div>
+				</section>
+				<footer>
+					<button id="person-cancel" class="modal-close">Cancel</button>
+					<button id="person-add" class="modal-action">Add</button>
+					<!-- <button id="person-remove" class="modal-action">Remove</button> -->
+				</footer>
+			</section>
+		</form>
+	</div>
+	
 	<script src="assets/plugins/jsplumb/jsplumb.min.js"></script>
 	<script src="assets/plugins/underscore/underscore-min.js"></script>
 	<script src="assets/plugins/grab-to-pan/grab-to-pan.js"></script>
 	<script src="assets/plugins/js-cookie/js.cookie.js"></script>
 	<script src="assets/plugins/jquery/jquery.slim.min.js"></script>
+	<script src="assets/plugins/family-tree/FamilyTreeJS.js"></script>
 	
+	<script src="assets/scripts/app.wrapper.js"></script>
+	<script src="assets/scripts/app.tree.js"></script>
+	<script src="assets/scripts/app.modal.js"></script>
 	<script src="assets/scripts/app.panel.js"></script>
 	<script src="assets/scripts/app.canvas.js"></script>
 	<script src="assets/scripts/app.person.js"></script>

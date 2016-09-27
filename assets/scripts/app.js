@@ -20,9 +20,12 @@
 		
 		new this.panel.create();
 		
+		this.tree.init();
+		
 		this.canvas.init();
 		
-		position = this.person.getPosition('.you');
+		// Center on `.you`; default to canvas center:
+		position = ($('.you').length) ? this.person.getPosition('.you') : this.canvas.dimensions;
 		
 		this.canvas.setCenter(position.x, position.y);
 		
