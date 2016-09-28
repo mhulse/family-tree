@@ -2,6 +2,8 @@
 	
 	'use strict';
 	
+	var $group = $('#group');
+	
 	ns.tree = {};
 	
 	ns.tree.init = function() {
@@ -17,7 +19,7 @@
 		}, 'you');
 		
 		// Custom event triggerd via `app.modal.js`:
-		$('#modal').on('trigger.modal', function(event, id) {
+		$group.on('trigger.submit', function(event, id) {
 			
 			switch (id) {
 				
@@ -84,6 +86,9 @@
 				
 				// Add a new person:
 				ns.root.wrapper.addPerson(settings);
+				
+				// Broadcast custom event for use in other scripts:
+				$group.trigger('trigger.tree'); // There is no endpoint for this demo.
 				
 			}
 			

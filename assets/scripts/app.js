@@ -16,6 +16,7 @@
 	
 	ns.main = function() {
 		
+		var $self = this;
 		var position = {};
 		
 		new this.panel.create();
@@ -30,6 +31,12 @@
 		this.canvas.setCenter(position.x, position.y);
 		
 		this.plumb.init();
+		
+		$('#group').on('trigger.submit', function() {
+			
+			$self.plumb.init();
+			
+		});
 		
 	};
 	

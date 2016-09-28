@@ -3,7 +3,7 @@
 	
 	'use strict';
 	
-	var $parent = $('#group');
+	var $group = $('#group');
 	var $modal = $('#modal');
 	var id;
 	var years;
@@ -21,7 +21,7 @@
 		
 		$('#modal-form-header-title').text(titles.add);
 		
-		$parent.on('click', '.add-relative, .view-relative', function(event) {
+		$group.on('click', '.add-relative, .view-relative', function(event) {
 			
 			var $target = $(event.target);
 			
@@ -128,7 +128,7 @@
 			
 			if (self.validate($modal.children('form'))) {
 				
-				$modal.trigger('trigger.modal', [
+				$group.trigger('trigger.submit', [
 					event.target.id
 				]);
 				
