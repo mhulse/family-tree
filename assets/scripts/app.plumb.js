@@ -4,19 +4,37 @@
 	
 	'use strict';
 	
+	var $group = $('#group');
+	
 	ns.plumb = {};
 	
+	// Should be called only once:
 	ns.plumb.init = function() {
+		
+		var self = this;
+		
+		this._private.init(function() {
+			
+			self.draw();
+			
+		});
+		
+	};
+	
+	// All subsequent calls should be this:
+	ns.plumb.draw = function() {
 		
 		this._private.proxii();
 		
-		this._private.plumb();
+		this._private.draw();
 		
 	};
 	
 	ns.plumb._private = {};
 	
 	ns.plumb._private.draw = function() {
+		
+		console.log('Drawing');
 		
 		var parentOverrides = {
 			connector: 'Straight',
@@ -25,9 +43,11 @@
 		var childrenOverrides = {};
 		var attrPicks = ['_has-parents', '_has-spouse'];
 		
+		// Reset the canvas:
 		jsPlumb.detachEveryConnection();
 		jsPlumb.deleteEveryEndpoint();
 		
+		// Draw some fresh lines:
 		jsPlumb.batch(function() {
 			
 			$.each(attrPicks, function(index1, value1) {
@@ -59,9 +79,7 @@
 		
 	};
 	
-	ns.plumb._private.plumb = function() {
-		
-		var $self = this;
+	ns.plumb._private.init = function(callback) {
 		
 		// https://jsplumbtoolkit.com/community/doc/connect-examples.html
 		jsPlumb.ready(function() {
@@ -98,9 +116,9 @@
 				},
 			});
 			
-			jsPlumb.setContainer($('#group'));
+			jsPlumb.setContainer($group);
 			
-			$self.draw();
+			callback.call(jsPlumb);
 			
 		});
 		
@@ -139,8 +157,7 @@
 	
 	ns.plumb._private.proxii = function() {
 		
-		var $self = this;
-		var $group = $('#group');
+		var self = this;
 		var proxy = function(id) {
 			var $result = $('<div />', {
 				'class': ('proxy' + (ns.debug ? ' proxy-debug' : ''))
@@ -152,12 +169,18 @@
 		};
 		var found = [];
 		
+		// Clean existing proxy points before creating new ones:
+		$group.find('.proxy').remove();
+		
 		$('[person]').each(function(key, value) {
 			
 			var $this = $(this);
-			var position = $self.getMidPoint($this);
+			var position = self.getMidPoint($this);
 			var parent = (($this.attr('has-mother') || '') + ($this.attr('has-father') || ''));
 			var proxyId = ('_' + $this.attr('id'));
+			
+			console.log(proxyId);
+			
 			var $proxy = proxy(proxyId);
 			
 			$this.attr('_proxy', proxyId);
@@ -194,7 +217,7 @@
 				
 				$proxy = proxy(proxyId);
 				
-				position = $self.getMidPoint($mother, $father);
+				position = self.getMidPoint($mother, $father);
 				
 				$proxy.css({
 					'top': position.top,

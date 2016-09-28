@@ -17,24 +17,23 @@
 	ns.main = function() {
 		
 		var $self = this;
-		var position = {};
+		var position;
 		
 		new this.panel.create();
 		
+		// ORDER MATTERS!
+		this.canvas.init();
+		this.plumb.init();
 		this.tree.init();
 		
-		this.canvas.init();
-		
 		// Center on `.you`; default to canvas center:
-		position = ($('.you').length) ? this.person.getPosition('.you') : this.canvas.dimensions;
+		position = (($('.you').length) ? this.person.getPosition('.you') : this.canvas.dimensions);
 		
 		this.canvas.setCenter(position.x, position.y);
 		
-		this.plumb.init();
-		
 		$('#group').on('trigger.submit', function() {
 			
-			$self.plumb.init();
+			$self.plumb.draw();
 			
 		});
 		
