@@ -178,9 +178,6 @@
 			var position = self.getMidPoint($this);
 			var parent = (($this.attr('has-mother') || '') + ($this.attr('has-father') || ''));
 			var proxyId = ('_' + $this.attr('id'));
-			
-			console.log(proxyId);
-			
 			var $proxy = proxy(proxyId);
 			
 			$this.attr('_proxy', proxyId);

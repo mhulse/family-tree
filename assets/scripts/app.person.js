@@ -4,6 +4,15 @@
 	
 	ns.person = {};
 	
+	ns.person.centerOnYou = function() {
+		
+		var klass = '.you';
+		var position = (($(klass).length) ? this.getPosition(klass) : ns.canvas.dimensions); // Center on `.you`; default to canvas center.
+		
+		ns.canvas.setCenter(position.x, position.y);
+		
+	};
+	
 	// It is assumed that the person is in a parent, which is within the “work” area.
 	ns.person.getPosition = function(person) {
 		

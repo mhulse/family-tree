@@ -74,7 +74,7 @@
 					person_birth_year: $('#person-birth-year').val(),
 					person_status: $('#person-status').val(),
 					crc_diagnosis: $('#crc-diagnosis').val(),
-					crc_discussed: $('#crc-discussed').val(),
+					crc_discussed: $('#crc-discussed:checked').val(),
 					health_informant: false // Need to figure out how to handle this.
 				};
 				

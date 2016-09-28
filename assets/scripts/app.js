@@ -25,15 +25,13 @@
 		this.canvas.init();
 		this.plumb.init();
 		this.tree.init();
-		
-		// Center on `.you`; default to canvas center:
-		position = (($('.you').length) ? this.person.getPosition('.you') : this.canvas.dimensions);
-		
-		this.canvas.setCenter(position.x, position.y);
+		this.person.centerOnYou();
 		
 		$('#group').on('trigger.submit', function() {
 			
 			$self.plumb.draw();
+			
+			$self.person.centerOnYou();
 			
 		});
 		
