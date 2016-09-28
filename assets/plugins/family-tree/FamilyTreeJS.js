@@ -626,7 +626,8 @@
 				})
 					.addClass([
 						person.details.person_gender.toLowerCase(),
-						person.details.person_status.toLowerCase()
+						person.details.person_status.toLowerCase(),
+						(person.details.study_participant ? 'you' : '')
 					].join(' '))
 					.attr({
 						'person': '',

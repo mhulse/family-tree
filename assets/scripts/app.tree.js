@@ -16,7 +16,7 @@
 			person_gender: 'Male',
 			crc_diagnosis: 'positive',
 			study_participant: true
-		}, 'you');
+		});
 		
 		// Custom event triggerd via `app.modal.js`:
 		$group.on('trigger.submit', function(event, id) {
@@ -47,7 +47,7 @@
 			
 		});
 		
-		function addPerson(settings, klass) {
+		function addPerson(settings) {
 			
 			var person;
 			
@@ -63,12 +63,6 @@
 			if (_(settings).size()) {
 				
 				person = ns.root.wrapper.addPerson(settings);
-				
-				if (klass && klass.length) {
-					
-					$('#' + person.uid).addClass(klass);
-					
-				}
 				
 			} else { // … or dynamically via form:
 				
