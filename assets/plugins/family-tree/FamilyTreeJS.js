@@ -389,6 +389,8 @@
 				};
 				*/
 				
+				return this;
+				
 			};
 			
 			// Used to add a 'parentless' person to the family tree (no higher-level nodes):

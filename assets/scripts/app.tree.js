@@ -49,7 +49,7 @@
 		
 		function addPerson(settings, klass) {
 			
-			var $person;
+			var person;
 			
 			function getGender(relationship) {
 				return (_([
@@ -62,11 +62,11 @@
 			// Add person manually:
 			if (_(settings).size()) {
 				
-				$person = $(ns.root.wrapper.addPerson(settings));
+				person = ns.root.wrapper.addPerson(settings);
 				
 				if (klass && klass.length) {
 					
-					$person.addClass(klass);
+					$('#' + person.uid).addClass(klass);
 					
 				}
 				

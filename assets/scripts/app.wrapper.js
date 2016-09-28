@@ -177,7 +177,7 @@
 		
 		renderTree();
 		
-		return $(uid);
+		return tmp_person;
 		
 	};
 	
@@ -299,7 +299,7 @@
 				
 			}
 		}
-		
+
 		tree.Render(document.getElementById('group')); // Make jQ?
 		
 	}
