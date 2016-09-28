@@ -86,7 +86,7 @@
 		
 		return function() {
 			
-			return ('ft_node_' + nodes++);
+			return ('uid' + nodes++);
 			
 		};
 		
@@ -579,11 +579,11 @@
 				var $node;
 				
 				function hasParentType(which, parents) {
-					var parent;
+					var obj;
 					var result = [];
-					for (parent in parents) {
-						if (parents[parent].details.person_gender == which) {
-							result.push(parents[parent].node_id);
+					for (obj in parents) {
+						if (parents[obj].details.person_gender.toLowerCase() == which) {
+							result.push(parents[obj].node_id);
 						}
 					}
 					return result.join(',');
