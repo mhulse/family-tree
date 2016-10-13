@@ -314,7 +314,6 @@
 	z-index: 1;
 	overflow: hidden;
 	-webkit-overflow-scrolling: touch;
-	/*scroll-behavior: smooth;*/ /* https://github.com/Rob--W/grab-to-pan.js/issues/9 */
 }
 .touch [ft-tree="canvas"] { overflow: auto; }
 
