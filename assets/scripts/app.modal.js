@@ -95,14 +95,18 @@
 			
 		};
 		
+		$modal.addClass('modal-open');
+		
 		// Do we want to load the clicked user’s details?
 		if (klass.indexOf('view') != -1) {
 			
 			this.populate();
 			
+		} else {
+			
+			$('#person-name').focus();
+			
 		}
-		
-		$modal.addClass('modal-open');
 		
 		$modal.on('click.modal', function(event) {
 			

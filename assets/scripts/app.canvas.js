@@ -19,15 +19,25 @@
 	
 	ns.canvas.init = function() {
 		
+		var self = this;
+		
 		this._private.crosshairs();
 		
 		this._private.g2p();
 		
-		this._private.fit();
+		this._private.fit(); // Only works if app has pre-populated hard-coded HTML; otherwise, see `trigger.tree` below.
 		
 		this.dimensions = this._private.dimensions();
 		
 		this.setCenter(this.dimensions.x, this.dimensions.y);
+		
+		// Make sure the tree’s container is sized to fit the tree:
+		$group.on('trigger.tree', function() {
+			
+			// Called when a new person is added to the tree:
+			self._private.fit();
+			
+		});
 		
 	};
 	

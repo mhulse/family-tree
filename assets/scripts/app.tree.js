@@ -81,10 +81,10 @@
 				// Add a new person:
 				ns.root.wrapper.addPerson(settings);
 				
-				// Broadcast custom event for use in other scripts:
-				$group.trigger('trigger.tree'); // There is no endpoint for this demo.
-				
 			}
+			
+			// Broadcast custom event for use in other scripts:
+			$group.trigger('trigger.tree');	
 			
 		}
 		

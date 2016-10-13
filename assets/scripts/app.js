@@ -19,6 +19,12 @@
 		var $self = this;
 		var position;
 		
+		if (this.debug) {
+			
+			$('html').addClass('debug');
+			
+		}
+		
 		new this.panel.create();
 		
 		// ORDER MATTERS!

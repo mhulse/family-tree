@@ -34,11 +34,9 @@
 	
 	ns.plumb._private.draw = function() {
 		
-		console.log('Drawing');
-		
 		var parentOverrides = {
-			connector: 'Straight',
-			anchor: 'AutoDefault'
+			//connector: 'Straight',
+			//anchor: 'AutoDefault'
 		};
 		var childrenOverrides = {};
 		var attrPicks = ['_has-parents', '_has-spouse'];
@@ -77,6 +75,13 @@
 			
 		});
 		
+		// Remove extraneous markup:
+		if ( ! ns.debug) {
+			
+			$('.jsplumb-endpoint-anchor').remove(); // … cleaning house, since we are not dynamically drawing.
+			
+		}
+		
 	};
 	
 	ns.plumb._private.init = function(callback) {
@@ -96,8 +101,8 @@
 					alwaysRespectStubs: true
 				}],
 				Anchors:[
-					'Top',
-					'Bottom'
+					'Center',
+					'Center'
 				],
 				// Endpoint: ['Dot', {
 				// 	radius: 5
